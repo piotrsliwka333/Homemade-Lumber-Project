@@ -1,0 +1,116 @@
+.heder {
+  margin-top: 20px;
+
+  .container {
+    max-width: 1400px;
+  }
+
+  &__content {
+
+
+    .user-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      @include desktop {
+        justify-content: flex-end;
+        margin-right: 25px;
+      }
+
+      &__stuff, &__log-out, &__log-in, &__create-account {
+        text-decoration: none;
+        color: black;
+      }
+
+      &__log-out, &__log-in, &__create-account {
+
+        font-weight: 400;
+        font-size: 0.8rem;
+        color: $main-text-color;
+        letter-spacing: 0;
+      }
+
+      &__create-account , &__stuff {
+        padding: 9px 7px;
+        border: 0.75px solid $main-high-light-color;
+      }
+
+      &__stuff {
+        @include desktop {
+          margin: 0 20px;
+        }
+      }
+
+      &__log-in {
+        @include desktop {
+          margin-right: 20px;
+        }
+      }
+
+
+
+    }
+
+    .menu-toggle {
+      display: block;
+      font-size: 2rem;
+
+      @include desktop {
+        display: none;
+      }
+
+    }
+
+    .page-nav {
+      border: 0.75px solid black;
+      border-bottom: none;
+      width: 100vw;
+      position: absolute;
+      right: 0;
+      top: 100px;
+      @include desktop {
+        width: 100%;
+        justify-content: flex-end;
+        display: flex;
+        border: none;
+        position: static;
+        margin-top: 15px;
+      }
+
+
+      &__list {
+        @include desktop {
+          width: 683px;
+          display: flex;
+          justify-content: flex-end;
+        }
+
+        &__element {
+
+          &__link {
+            display: block;
+            padding: 20px;
+            text-align: center;
+            text-decoration: none;
+            color: #3C3C3C;
+            font-size: 1.8rem;
+            border-bottom: 0.75px solid black;
+            @include desktop {
+              font-size: 1rem;
+              border: none;
+              padding: 9px 20px;
+              margin: 0 5px;
+            }
+          }
+
+
+          .active-link {
+            border: 0.75px solid black;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}
