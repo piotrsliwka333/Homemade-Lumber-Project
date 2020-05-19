@@ -1,5 +1,7 @@
 .heder {
   margin-top: 20px;
+  position: absolute;
+  width: 100%;
 
   .container {
     max-width: 1400px;
@@ -63,6 +65,7 @@
     }
 
     .page-nav {
+      background-color: #fff;
       border: 0.75px solid black;
       border-bottom: none;
       width: 100vw;
@@ -70,6 +73,7 @@
       right: 0;
       top: 100px;
       @include desktop {
+        background: transparent;
         width: 100%;
         justify-content: flex-end;
         display: flex;
@@ -89,8 +93,9 @@
         &__element {
 
           &__link {
+            cursor: pointer;
             display: block;
-            padding: 20px;
+            padding: 35px;
             text-align: center;
             text-decoration: none;
             color: #3C3C3C;

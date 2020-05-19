@@ -1,5 +1,6 @@
 import React, {useState} from "react";
-import {HashRouter, Link, NavLink} from "react-router-dom";
+import {BrowserRouter, HashRouter, Link, NavLink} from "react-router-dom";
+import {Link as LinkScroll} from "react-scroll"
 
 
 const Logged = ({userName}) => {
@@ -18,15 +19,15 @@ const LoggedOut = () => {
 
 	return (
 		<>
-			<Link to='#' className='user-box__log-in'>Log in</Link>
-			<Link to='#' className='user-box__create-account'>Create an Account</Link>
+			<Link to='/login' className='user-box__log-in'>Log in</Link>
+			<Link to='/registration' className='user-box__create-account'>Create an Account</Link>
 		</>
 	)
 
 }
 
 
-export const MainTemplate = () => {
+export const MainTemplate = (props) => {
 	const [logged,setLogged] = useState(false)
 	const [userName,setUserName] = useState('')
 	const [menuOpen,setMenuOpen] = useState(true)
@@ -37,36 +38,41 @@ export const MainTemplate = () => {
 	}
 
 	return(
-		<header className="heder">
-			<section className="heder__content container">
-				<HashRouter>
-				<div className="user-box">
-					{logged ? <Logged userName={userName}/> : <LoggedOut/> }
-				</div>
-				<a onClick={handleOpenMenu} className='menu-toggle'>
-					<i className="fas fa-bars"/>
-				</a>
-				<nav className={menuOpen ? 'page-nav' : "page-nav hide"}>
-					<ul className="page-nav__list">
-						<li className='page-nav__list__element'>
-							<NavLink className='page-nav__list__element__link active-link' to='#'>Start</NavLink>
-						</li>
-						<li className='page-nav__list__element'>
-							<NavLink className='page-nav__list__element__link' to='#'>How it works ?</NavLink>
-						</li>
-						<li className='page-nav__list__element'>
-							<NavLink className='page-nav__list__element__link' to='#'>About us</NavLink>
-						</li>
-						<li className='page-nav__list__element'>
-							<NavLink className='page-nav__list__element__link' to='#'>Foundations</NavLink>
-						</li>
-						<li className='page-nav__list__element'>
-							<NavLink className='page-nav__list__element__link' to='#'>Contact</NavLink>
-						</li>
-					</ul>
-				</nav>
-				</HashRouter>
-			</section>
-		</header>
+		<>
+			<header className="heder">
+				<section className="heder__content container">
+					<BrowserRouter>
+					<div className="user-box">
+						{logged ? <Logged userName={userName}/> : <LoggedOut/> }
+					</div>
+					<a onClick={handleOpenMenu} className='menu-toggle'>
+						<i className="fas fa-bars"/>
+					</a>
+					<nav className={menuOpen ? 'page-nav' : "page-nav hide"}>
+						<ul className="page-nav__list">
+							<li className='page-nav__list__element'>
+								<LinkScroll className='page-nav__list__element__link active-link' to='#'>Start</LinkScroll>
+							</li>
+							<li className='page-nav__list__element'>
+								<LinkScroll className='page-nav__list__element__link' to='#'>How it works ?</LinkScroll>
+							</li>
+							<li className='page-nav__list__element'>
+								<LinkScroll className='page-nav__list__element__link' to='#'>About us</LinkScroll>
+							</li>
+							<li className='page-nav__list__element'>
+								<LinkScroll className='page-nav__list__element__link' to='#'>Foundations</LinkScroll>
+							</li>
+							<li className='page-nav__list__element'>
+								<LinkScroll className='page-nav__list__element__link' to='#'>Contact</LinkScroll>
+							</li>
+						</ul>
+					</nav>
+					</BrowserRouter>
+				</section>
+			</header>
+			<main>
+				{props.children}
+			</main>
+		</>
 	)
 }
