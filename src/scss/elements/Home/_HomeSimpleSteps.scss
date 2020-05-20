@@ -1,0 +1,93 @@
+.simple-steps {
+
+  &__title {
+    font-size: 2.5rem;
+    letter-spacing: -0.76px;
+    color: $main-text-color;
+    font-weight: 400;
+    text-align: center;
+    margin: 55px 0 31px 0;
+  }
+
+  &__decoration {
+    width: 253px;
+    display: block;
+    margin: 0 auto 40px auto;
+  }
+
+  &__instructions {
+    padding: 71px 0 76px 0;
+    width: 100%;
+    background-color: $second-background-color;
+
+
+    .container {
+
+      .row {
+        justify-content: space-evenly;
+
+        @include desktop {
+          justify-content: space-between;
+        }
+
+
+        .instruction-box {
+          margin: 20px 0 ;
+
+          &__icon {
+            display: block;
+            margin: 0 auto;
+            width: 83px;
+            height: 83px;
+          }
+
+          &__action {
+            text-align: center;
+            font-size: 1rem;
+            position: relative;
+            margin: 10px 0 21px 0;
+
+
+            &::after {
+
+              content: '';
+              display: block;
+              width: 70px;
+              height: 0.1px;
+              position: absolute;
+              background-color: #707070;
+              bottom: -10px;
+              left: 50%;
+              transform: translate(-50%,-50%);
+            }
+          }
+
+          &__text {
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: $main-text-color;
+          }
+
+        }
+      }
+    }
+  }
+  .btn {
+    width: 310px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1.7rem;
+    border: 0.75px solid $main-text-color;
+    text-align: center;
+    color: $main-text-color;
+    text-transform: uppercase;
+    line-height: 2.5rem;
+    margin: 35px auto 80px auto;
+  }
+
+}
