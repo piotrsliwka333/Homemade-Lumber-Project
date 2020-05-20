@@ -3,6 +3,7 @@ import {MainTemplate} from "../MainTemplate/MainTemplate";
 import {HomeJumbotron} from "./HomeJumbotron";
 import {HomeThreeColumns} from "./HomeThreeColumns";
 import {HomeSimpleSteps} from "./HomeSimpleSteps";
+import {HomeAboutUs} from "./HomeAboutUs";
 
 export const Home = (props) => {
 
@@ -13,6 +14,7 @@ export const Home = (props) => {
 			<HomeJumbotron/>
 			<HomeThreeColumns/>
 			<HomeSimpleSteps/>
+			<HomeAboutUs/>
 		</MainTemplate>
 	)
 }

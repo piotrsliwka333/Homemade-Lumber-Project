@@ -58,7 +58,8 @@ export const MainTemplate = (props) => {
 								            duration={1000} smooth={true} to='simple-steps'>How it works ?</LinkScroll>
 							</li>
 							<li className='page-nav__list__element'>
-								<LinkScroll className='page-nav__list__element__link' to='#'>About us</LinkScroll>
+								<LinkScroll className='page-nav__list__element__link'
+								           duration={1000} smooth={true} to='about-us'>About us</LinkScroll>
 							</li>
 							<li className='page-nav__list__element'>
 								<LinkScroll className='page-nav__list__element__link' to='#'>Foundations</LinkScroll>
