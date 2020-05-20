@@ -1,0 +1,56 @@
+.three-columns {
+  width: 100%;
+  background-image: url("/../../../assets/3 Columns Background.png");
+  background-position: center;
+
+  .container {
+    max-width: 1600px;
+
+    .row {
+      flex-direction: column;
+      align-items: center;
+      @include tablet {
+        flex-direction: row;
+        justify-content: space-evenly;
+      }
+      @include desktop {
+        justify-content: space-between;
+      }
+
+      .box {
+        margin: 20px 0;
+
+        @include desktop {
+          margin: 46px 0 86px 0;
+        }
+
+        .three-columns__amount {
+          font-size: 4rem;
+          font-weight: 300;
+          color: $three-columns-amount-color;
+          text-align: center;
+
+        }
+
+        .three-columns__title {
+          text-align: center;
+          letter-spacing: -0.36px;
+          color: $main-text-color;
+          font-size: 1.5rem;
+          margin: 10px 0 28px 0;
+
+        }
+
+        .three-columns__description {
+          text-align: center;
+          font-family: $font-alt;
+          font-weight: 300;
+          color: $main-text-color;
+          letter-spacing: -0.32px;
+          line-height: 2rem;
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+}

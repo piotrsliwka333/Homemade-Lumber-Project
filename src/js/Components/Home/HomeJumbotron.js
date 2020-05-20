@@ -20,7 +20,6 @@ export const HomeJumbotron = () => {
 						</div>
 					</div>
 				</div>
-
 			</div>
 		</section>
 
