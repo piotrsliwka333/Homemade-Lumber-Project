@@ -62,10 +62,12 @@ export const MainTemplate = (props) => {
 								           duration={1000} smooth={true} to='about-us'>About us</LinkScroll>
 							</li>
 							<li className='page-nav__list__element'>
-								<LinkScroll className='page-nav__list__element__link' to='#'>Foundations</LinkScroll>
+								<LinkScroll className='page-nav__list__element__link'
+								            duration={1000} smooth={true} to='help'>Foundations</LinkScroll>
 							</li>
 							<li className='page-nav__list__element'>
-								<LinkScroll className='page-nav__list__element__link' to='#'>Contact</LinkScroll>
+								<LinkScroll className='page-nav__list__element__link'
+								            duration={1000} smooth={true} to='contact'>Contact</LinkScroll>
 							</li>
 						</ul>
 					</nav>
@@ -75,6 +77,19 @@ export const MainTemplate = (props) => {
 			<main>
 				{props.children}
 			</main>
+			<footer className='footer'>
+				<div className='footer-box'>
+					<small className='footer-box__copyrights'>Copyright by Coders Lab</small>
+					<div className='footer-box__icons'>
+						<a href='#' className='footer-icon'>
+							<img src='/../../../assets/Facebook.svg'/>
+						</a>
+						<a href='#' className='footer-icon'>
+							<img src='../../../assets/Instagram.svg'/>
+						</a>
+					</div>
+				</div>
+			</footer>
 		</>
 	)
 }

@@ -5,6 +5,7 @@ import {HomeThreeColumns} from "./HomeThreeColumns";
 import {HomeSimpleSteps} from "./HomeSimpleSteps";
 import {HomeAboutUs} from "./HomeAboutUs";
 import {HomeHelp} from "./HomeHelp";
+import {HomeContact} from "./HomeContact";
 
 export const Home = (props) => {
 
@@ -17,6 +18,7 @@ export const Home = (props) => {
 			<HomeSimpleSteps/>
 			<HomeAboutUs/>
 			<HomeHelp/>
+			<HomeContact/>
 		</MainTemplate>
 	)
 }

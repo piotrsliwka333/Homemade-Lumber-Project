@@ -17,7 +17,7 @@ export const HomeHelp = () => {
 	// we can not add name atribute on <li> and we can not add value on <a>
 	//coz in console we'll undefined in both cases
 	return (
-		<section className='help'>
+		<section className='help' id='help'>
 			<h6 className='help__title'>Who we help ?</h6>
 			<img src='../../../assets/Decoration.svg' className='help__decoration'/>
 			<div className='help__buttons'>
