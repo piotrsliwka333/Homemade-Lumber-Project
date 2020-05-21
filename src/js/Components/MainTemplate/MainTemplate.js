@@ -7,7 +7,7 @@ const Logged = ({userName}) => {
 
 	return (
 		<>
-			<p className='user-box__name'>Welcome krzysztof@gmail.com!</p>
+			<p className='user-box__name'>Welcome piotrsliwka333@gmail.com!</p>
 			<Link to='#' className='user-box__stuff'>Give back Stuff</Link>
 			<Link to='#' className='user-box__log-out'>Log out</Link>
 		</>
@@ -28,7 +28,7 @@ const LoggedOut = () => {
 
 
 export const MainTemplate = (props) => {
-	const [logged,setLogged] = useState(false)
+	const [logged,setLogged] = useState(true)
 	const [userName,setUserName] = useState('')
 	const [menuOpen,setMenuOpen] = useState(true)
 
