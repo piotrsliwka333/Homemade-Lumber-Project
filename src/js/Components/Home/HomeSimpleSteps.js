@@ -35,9 +35,9 @@ export const HomeSimpleSteps = () => {
 					</div>
 				</div>
 			</article>
-			<BrowserRouter>
-				<Link className='btn' to={'/logowanie'}>Give <br/>Things</Link>
-			</BrowserRouter>
+			<HashRouter>
+				<Link className='btn' to={'/login'}>Give <br/>Things</Link>
+			</HashRouter>
 		</section>
 
 	)

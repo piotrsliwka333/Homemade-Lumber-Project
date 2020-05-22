@@ -1,0 +1,85 @@
+.login {
+  width: 100%;
+  height: 95vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &__title {
+    font-size: 2.5rem;
+    color: $main-text-color;
+    letter-spacing: -0.8px;
+    font-weight: 400;
+    text-align: center;
+  }
+
+  &__decoration {
+    width: 253px;
+    display: block;
+    margin: 20px auto;
+  }
+
+  &-box {
+    padding: 40px 67px;
+    width: 384px;
+    height: 235px;
+    background-color: $second-background-color;
+
+    &__form {
+
+      &__label {
+        font-weight: bold;
+        font-size: 0.9rem;
+        display: block;
+        margin-bottom: 20px;
+      }
+
+      &__input {
+        font-weight: bold;
+        font-family: $font-alt;
+        font-size: 1rem;
+        margin-bottom: 30px;
+        background-color: transparent;
+        border: none;
+        width: 100%;
+        display: block;
+        border-bottom: 1px solid $second-text-color;
+      }
+    }
+  }
+
+  &-btn-box {
+    margin-top: 30px;
+    display: flex;
+    width: 500px;
+    flex-direction: column;
+    align-items: center;
+
+
+    @include tablet {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .btn {
+      margin: 20px 0;
+      text-decoration: none;
+      color: $main-text-color;
+      font-weight: 300;
+      font-size: 1rem;
+      padding: 13px 16px;
+
+      @include tablet {
+        margin: 0;
+      }
+    }
+
+    .active-btn {
+      border: 1px solid $main-text-color;
+
+    }
+  }
+
+}

@@ -4,15 +4,19 @@ import ReactDOM from "react-dom";
 import {MainTemplate} from "./Components/MainTemplate/MainTemplate";
 import {BrowserRouter, HashRouter,Route} from "react-router-dom";
 import {Home} from "./Components/Home/Home";
+import {Login} from "./Components/Login/Login";
 
 
 
 const App = () => {
 
 	return (
-		<BrowserRouter>
-			<Route path={'/'} component={Home}/>
-		</BrowserRouter>
+		<HashRouter>
+			<>
+				<Route exact path={'/'} component={Home}/>
+				<Route path={'/login'} component={Login}/>
+			</>
+		</HashRouter>
 	)
 }
 

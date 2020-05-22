@@ -28,7 +28,7 @@ const LoggedOut = () => {
 
 
 export const MainTemplate = (props) => {
-	const [logged,setLogged] = useState(true)
+	const [logged,setLogged] = useState(false)
 	const [userName,setUserName] = useState('')
 	const [menuOpen,setMenuOpen] = useState(true)
 
@@ -41,37 +41,37 @@ export const MainTemplate = (props) => {
 		<>
 			<header className="heder">
 				<section className="heder__content container">
-					<BrowserRouter>
-					<div className="user-box">
-						{logged ? <Logged userName={userName}/> : <LoggedOut/> }
-					</div>
-					<a onClick={handleOpenMenu} className='menu-toggle'>
-						<i className="fas fa-bars"/>
-					</a>
-					<nav className={menuOpen ? 'page-nav' : "page-nav hide"}>
-						<ul className="page-nav__list">
-							<li className='page-nav__list__element'>
-								<LinkScroll className='page-nav__list__element__link active-link' to='#'>Start</LinkScroll>
-							</li>
-							<li className='page-nav__list__element'>
-								<LinkScroll className='page-nav__list__element__link'
-								            duration={1000} smooth={true} to='simple-steps'>How it works ?</LinkScroll>
-							</li>
-							<li className='page-nav__list__element'>
-								<LinkScroll className='page-nav__list__element__link'
-								           duration={1000} smooth={true} to='about-us'>About us</LinkScroll>
-							</li>
-							<li className='page-nav__list__element'>
-								<LinkScroll className='page-nav__list__element__link'
-								            duration={1000} smooth={true} to='help'>Foundations</LinkScroll>
-							</li>
-							<li className='page-nav__list__element'>
-								<LinkScroll className='page-nav__list__element__link'
-								            duration={1000} smooth={true} to='contact'>Contact</LinkScroll>
-							</li>
-						</ul>
-					</nav>
-					</BrowserRouter>
+					<HashRouter>
+						<div className="user-box">
+							{logged ? <Logged userName={userName}/> : <LoggedOut/> }
+						</div>
+						<a onClick={handleOpenMenu} className='menu-toggle'>
+							<i className="fas fa-bars"/>
+						</a>
+						<nav className={menuOpen ? 'page-nav' : "page-nav hide"}>
+							<ul className="page-nav__list">
+								<li className='page-nav__list__element'>
+									<Link className='page-nav__list__element__link active-link' to='/'>Start</Link>
+								</li>
+								<li className='page-nav__list__element'>
+									<LinkScroll className='page-nav__list__element__link'
+									            duration={1000} smooth={true} to='simple-steps'>How it works ?</LinkScroll>
+								</li>
+								<li className='page-nav__list__element'>
+									<LinkScroll className='page-nav__list__element__link'
+									           duration={1000} smooth={true} to='about-us'>About us</LinkScroll>
+								</li>
+								<li className='page-nav__list__element'>
+									<LinkScroll className='page-nav__list__element__link'
+									            duration={1000} smooth={true} to='help'>Foundations</LinkScroll>
+								</li>
+								<li className='page-nav__list__element'>
+									<LinkScroll className='page-nav__list__element__link'
+									            duration={1000} smooth={true} to='contact'>Contact</LinkScroll>
+								</li>
+							</ul>
+						</nav>
+					</HashRouter>
 				</section>
 			</header>
 			<main>
