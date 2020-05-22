@@ -33,16 +33,30 @@
         font-size: 2.2rem;
       }
 
+
       &__decoration {
-        margin: 31px auto 80px auto;
+        margin: 31px auto 40px auto;
         width: 253px;
       }
 
+
+      .form-sent {
+        text-align: center;
+        color: forestgreen;
+        font-size: 1rem;
+        line-height: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 40px;
+      }
+
       &__form {
+        margin-top: 20px;
         width: 100%;
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
+
+
 
         .input__group {
           margin-bottom: 40px;
@@ -52,14 +66,27 @@
             width: 48%;
           }
 
+
+          .error-border {
+            border-bottom: 1px solid tomato;
+          }
+
+          .error-message {
+            padding-top: 5px;
+            color: tomato;
+            font-size: 0.8rem;
+            font-weight: bold;
+          }
+
           label {
+            position: relative;
             display: block;
             font-weight: bold;
             font-size: 1rem;
             margin-bottom: 20px;
             color: $main-text-color;
-
           }
+
 
           input,textarea {
             font-size: 1rem;
