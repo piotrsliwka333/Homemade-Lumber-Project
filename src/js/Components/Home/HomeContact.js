@@ -14,17 +14,6 @@ export const HomeContact = () => {
 		return emailValidation.test(email);
 	}
 
-	const handleCheckValidate = (e) => {
-		setName(e.target.value)
-		if(name.indexOf(" ") >= 0 || name.length <= 0) {
-			setNameError(true);
-		}
-		if(name.indexOf(" ") < 0 && name.length > 0) {
-			setNameError(false);
-		}
-
-	}
-
 
 	const handleSubmit = (e) => {
 		e.preventDefault()

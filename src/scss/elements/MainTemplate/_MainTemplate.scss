@@ -72,6 +72,7 @@
       position: absolute;
       right: 0;
       top: 190px;
+      z-index: 2;
       @include desktop {
         background: transparent;
         width: 100%;

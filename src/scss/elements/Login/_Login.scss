@@ -27,19 +27,37 @@
     background-color: $second-background-color;
 
     &__form {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      .error-border {
+        border-bottom: 1px solid tomato;
+      }
+
+      .error-message {
+        padding-top: 5px;
+        color: tomato;
+        font-size: 0.8rem;
+        font-weight: bold;
+      }
 
       &__label {
+        margin-bottom: 20px;
         font-weight: bold;
         font-size: 0.9rem;
         display: block;
-        margin-bottom: 20px;
+      }
+
+      &__label:nth-of-type(2) {
+        margin-top: 30px;
       }
 
       &__input {
         font-weight: bold;
         font-family: $font-alt;
         font-size: 1rem;
-        margin-bottom: 30px;
         background-color: transparent;
         border: none;
         width: 100%;
@@ -50,6 +68,9 @@
   }
 
   &-btn-box {
+    left: -120px;
+    top: 200px;
+    position: absolute;
     margin-top: 30px;
     display: flex;
     width: 500px;
@@ -64,6 +85,7 @@
     }
 
     .btn {
+      background-color: transparent;
       margin: 20px 0;
       text-decoration: none;
       color: $main-text-color;

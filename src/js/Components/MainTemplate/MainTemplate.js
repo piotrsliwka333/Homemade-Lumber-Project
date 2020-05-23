@@ -1,7 +1,6 @@
 import React, {useState} from "react";
-import {BrowserRouter, HashRouter, Link, NavLink} from "react-router-dom";
+import {HashRouter, Link} from "react-router-dom";
 import {Link as LinkScroll} from "react-scroll"
-
 
 const Logged = ({userName}) => {
 
@@ -12,7 +11,6 @@ const Logged = ({userName}) => {
 			<Link to='#' className='user-box__log-out'>Log out</Link>
 		</>
 	)
-
 }
 
 const LoggedOut = () => {

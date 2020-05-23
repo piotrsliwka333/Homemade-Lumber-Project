@@ -1,10 +1,54 @@
-import React from "react";
+import React, {useState} from "react";
 import {MainTemplate} from "../MainTemplate/MainTemplate";
 import {BrowserRouter, HashRouter, Link} from "react-router-dom";
 
 
 
 export const Login = () => {
+	const [logged,setLogged] = useState(false)
+	const [email,setEmail] = useState('')
+	const [password,setPassword] = useState('')
+	const [emailError,setEmailError] = useState('')
+	const [passwordError,setPasswordError] = useState('')
+	const [work,setWork] = useState(false)
+
+	function validateEmail(email) {
+		let emailValidation = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		return emailValidation.test(email);
+	}
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+
+		if(emailError === false && passwordError === false) {
+			setLogged(true)
+			setEmail('');
+			setPassword('');
+		}
+	}
+
+	const handleCheckEmail = (e) => {
+		if(validateEmail(e.target.value)) {
+			setEmail(e.target.value)
+			setEmailError(false)
+		} else {
+			setEmail(e.target.value)
+			setEmailError(true)
+		}
+	}
+
+	const handleCheckPassword = (e) => {
+
+		if(password.length < 6) {
+			setPassword(e.target.value)
+			setPasswordError(true)
+		} else {
+			setPassword(e.target.value)
+			setPasswordError(false)
+		}
+	}
+
+
 
 
 	return(
@@ -14,16 +58,20 @@ export const Login = () => {
 				<img className='login__decoration' src='../../../assets/Decoration.svg'/>
 				<HashRouter>
 					<div className='login-box'>
-						<form className='login-box__form'>
+						<form onSubmit={handleSubmit} className='login-box__form'>
 							<label className='login-box__form__label'>Email</label>
-							<input type='email' className='login-box__form__input'/>
+							<input value={email} onChange={handleCheckEmail} type='email'
+							       className={emailError ? 'login-box__form__input error-border' : 'login-box__form__input'}/>
+							{emailError && <p className='error-message'>Podany email jest nieprawidłowy</p>}
 							<label className='login-box__form__label'>Password</label>
-							<input type='password' className='login-box__form__input'/>
+							<input value={password} onChange={handleCheckPassword} type='password'
+							       className={passwordError ? 'login-box__form__input error-border' : 'login-box__form__input'}/>
+							{passwordError && <p className='error-message'>Podane hasło jest za krótkie</p>}
+							<div className='login-btn-box'>
+								<Link className='btn' to='#'>Załóż konto</Link>
+								<button type='submit' className='btn active-btn'>Zaloguj się</button>
+							</div>
 						</form>
-					</div>
-					<div className='login-btn-box'>
-						<Link className='btn' to='#'>Załóż konto</Link>
-						<Link className='btn active-btn' to='#'>Zaloguj się</Link>
 					</div>
 				</HashRouter>
 			</section>
