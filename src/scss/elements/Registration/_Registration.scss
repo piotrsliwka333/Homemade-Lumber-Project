@@ -1,4 +1,4 @@
-.login {
+.registration {
   width: 100%;
   height: 95vh;
   display: flex;
@@ -23,7 +23,7 @@
   &-box {
     padding: 40px 67px;
     width: 384px;
-    height: 235px;
+    height: 328px;
     background-color: $second-background-color;
 
     &__form {
@@ -50,7 +50,7 @@
         display: block;
       }
 
-      &__label:nth-of-type(2) {
+      &__label:nth-of-type(2), &__label:nth-of-type(3) {
         margin-top: 30px;
       }
 
@@ -69,7 +69,7 @@
 
   &-btn-box {
     left: -120px;
-    top: 200px;
+    top: 270px;
     position: absolute;
     margin-top: 30px;
     display: flex;
