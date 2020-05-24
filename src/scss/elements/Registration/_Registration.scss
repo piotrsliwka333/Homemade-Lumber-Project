@@ -23,7 +23,7 @@
   &-box {
     padding: 40px 67px;
     width: 384px;
-    height: 328px;
+    height: 348px;
     background-color: $second-background-color;
 
     &__form {
@@ -76,6 +76,9 @@
     width: 500px;
     flex-direction: column;
     align-items: center;
+    @include tablet {
+      top: 300px;
+    }
 
 
     @include tablet {

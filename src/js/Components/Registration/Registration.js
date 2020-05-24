@@ -6,9 +6,11 @@ export const Registration = () => {
 	const [logged,setLogged] = useState(false)
 	const [email,setEmail] = useState('')
 	const [password,setPassword] = useState('')
+	const [passwordRepeat,setPasswordRepeat] = useState('')
 	const [emailError,setEmailError] = useState('')
 	const [passwordError,setPasswordError] = useState('')
-	const [work,setWork] = useState(false)
+	const [passwordRepeatError,setPasswordRepeatError]= useState('')
+	const [passwordRepeatError2,setPasswordRepeatError2]= useState('')
 
 	function validateEmail(email) {
 		let emailValidation = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -18,10 +20,12 @@ export const Registration = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
-		if(emailError === false && passwordError === false) {
+		if(emailError === false && passwordError === false && passwordRepeatError === false && passwordRepeatError2 === false) {
 			setLogged(true)
 			setEmail('');
 			setPassword('');
+			setPasswordRepeat('');
+			setLogged(true)
 		}
 	}
 
@@ -37,12 +41,32 @@ export const Registration = () => {
 
 	const handleCheckPassword = (e) => {
 
-		if(password.length < 6) {
+		if(e.target.value.length < 6) {
 			setPassword(e.target.value)
 			setPasswordError(true)
 		} else {
 			setPassword(e.target.value)
 			setPasswordError(false)
+		}
+	}
+
+	const handleCheckPasswordRepeat = (e) => {
+
+		if(e.target.value.length < 6) {
+			setPasswordRepeat(e.target.value)
+			setPasswordRepeatError(true)
+		}
+		if(e.target.value.length >= 6) {
+			setPasswordRepeat(e.target.value)
+			setPasswordRepeatError(false)
+		}
+		if(e.target.value !== password) {
+			setPasswordRepeat(e.target.value)
+			setPasswordRepeatError2(true)
+		}
+		if (e.target.value === password){
+			setPasswordRepeat(e.target.value)
+			setPasswordRepeatError2(false)
 		}
 	}
 
@@ -64,12 +88,13 @@ export const Registration = () => {
 							       className={passwordError ? 'registration-box__form__input error-border' : 'login-box__form__input'}/>
 							{passwordError && <p className='error-message'>Podane hasło jest za krótkie</p>}
 							<label className='registration-box__form__label'>Repeat Password</label>
-							<input value={password} onChange={handleCheckPassword} type='password'
-							       className={passwordError ? 'registration-box__form__input error-border' : 'login-box__form__input'}/>
-							{passwordError && <p className='error-message'>Podane hasło jest za krótkie</p>}
+							<input value={passwordRepeat} onChange={handleCheckPasswordRepeat} type='password'
+							       className={passwordRepeatError ? 'registration-box__form__input error-border' : 'login-box__form__input'}/>
+							{passwordRepeatError && <p className='error-message'>Podane hasło musi mieć 6 znaków</p>}
+							{passwordRepeatError2 && <p className='error-message'>Hasła muszą być takie same</p>}
 							<div className='registration-btn-box'>
-								<Link className='btn' to='#'>Załóż konto</Link>
-								<button type='submit' className='btn active-btn'>Zaloguj się</button>
+								<Link className='btn' to='#'>Zaloguj się</Link>
+								<button type='submit' className='btn active-btn'>Załóż konto</button>
 							</div>
 						</form>
 					</div>
