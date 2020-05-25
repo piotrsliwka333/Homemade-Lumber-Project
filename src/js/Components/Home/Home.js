@@ -8,11 +8,11 @@ import {HomeHelp} from "./HomeHelp";
 import {HomeContact} from "./HomeContact";
 
 export const Home = (props) => {
-
+	const [loggedHome,setLoggedHome] = useState(false)
 
 
 	return(
-		<MainTemplate >
+		<MainTemplate>
 			<HomeJumbotron/>
 			<HomeThreeColumns/>
 			<HomeSimpleSteps/>

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {HashRouter, Link} from "react-router-dom";
 import {Link as LinkScroll} from "react-scroll"
 
@@ -7,7 +7,7 @@ const Logged = ({userName}) => {
 	return (
 		<>
 			<p className='user-box__name'>Welcome piotrsliwka333@gmail.com!</p>
-			<Link to='#' className='user-box__stuff'>Give back Stuff</Link>
+			<Link to='/give-things' className='user-box__stuff'>Give back Stuff</Link>
 			<Link to='/logout' className='user-box__log-out'>Log out</Link>
 		</>
 	)
@@ -25,11 +25,18 @@ const LoggedOut = () => {
 }
 
 
+
 export const MainTemplate = (props) => {
-	const [logged,setLogged] = useState(false)
+	const {logIn} = props
+	const [logged,setLogged] = useState(logIn)
 	const [userName,setUserName] = useState('')
 	const [menuOpen,setMenuOpen] = useState(false)
 
+
+	useEffect(()=> {
+		setLogged(logIn)
+
+	},[logIn])
 
 	const handleOpenMenu = () => {
 		setMenuOpen(!menuOpen)

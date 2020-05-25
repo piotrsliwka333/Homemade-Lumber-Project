@@ -25,7 +25,8 @@ export const Registration = () => {
 			setEmail('');
 			setPassword('');
 			setPasswordRepeat('');
-			setLogged(true)
+			LogIn();
+
 		}
 	}
 
@@ -70,9 +71,13 @@ export const Registration = () => {
 		}
 	}
 
+	const LogIn = () => { // this function will change logged on true and this info will be sent by
+		setLogged(true) // props to main Template to show user name and option to log out
+	}
+
 
 	return (
-		<MainTemplate>
+		<MainTemplate logIn={logged}>
 			<section className='registration'>
 				<h1 className='registration__title'>Register Account</h1>
 				<img className='registration__decoration' src='../../../assets/Decoration.svg'/>
@@ -93,7 +98,7 @@ export const Registration = () => {
 							{passwordRepeatError && <p className='error-message'>Podane hasło musi mieć 6 znaków</p>}
 							{passwordRepeatError2 && <p className='error-message'>Hasła muszą być takie same</p>}
 							<div className='registration-btn-box'>
-								<Link className='btn' to='#'>Zaloguj się</Link>
+								<Link className='btn' to='/login'>Zaloguj się</Link>
 								<button type='submit' className='btn active-btn'>Załóż konto</button>
 							</div>
 						</form>

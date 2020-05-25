@@ -7,6 +7,7 @@ import {Home} from "./Components/Home/Home";
 import {Login} from "./Components/Login/Login";
 import {Registration} from "./Components/Registration/Registration";
 import {LogOut} from "./Components/LogOut/LogOut";
+import {GiveThings} from "./Components/GiveThings/GiveThings";
 
 
 
@@ -19,6 +20,7 @@ const App = () => {
 				<Route path={'/login'} component={Login}/>
 				<Route path={'/registration'} component={Registration}/>
 				<Route path={'/logout'} component={LogOut}/>
+				<Route path={'/give-things'} component={GiveThings}/>
 			</>
 		</HashRouter>
 	)
