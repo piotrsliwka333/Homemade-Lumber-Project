@@ -1,8 +1,7 @@
 import React from "react";
 
 const GiveThingsJumbotronSteps = (props) => {
-
-	return(
+	return (
 		<div className='things-jumbotron__steps'>
 			{props.children}
 		</div>
@@ -10,20 +9,16 @@ const GiveThingsJumbotronSteps = (props) => {
 }
 
 const GiveThingsJumbotronStepsElement = (props) => {
-	const {number,name} = props
-
-	return(
+	const {number, name} = props
+	return (
 		<div className='things-jumbotron__steps__element'>
 			<p className='things-jumbotron__steps__element-text'><span className='number'>{number}</span>{name}</p>
 		</div>
-
 	)
 }
 
-
 export const GiveThingsJumbotron = () => {
-
-	return(
+	return (
 		<section className='things-jumbotron'>
 			<div className='container'>
 				<div className='row'>

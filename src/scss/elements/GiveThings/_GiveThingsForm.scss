@@ -1,0 +1,88 @@
+.things-form {
+
+  &__information {
+    background-color: #FAD648;
+    padding: 20px;
+    @include desktop {
+      padding: 50px 141px;
+    }
+
+    &__title {
+      margin-bottom: 10px;
+      color: black;
+      font-size: 2rem;
+      font-weight: 600;
+    }
+
+    &__description {
+      color: $main-text-color;
+      font-size: 1.3rem;
+    }
+  }
+
+  &__wraper {
+    height: 883px;
+    width: 100%;
+    padding: 36px 0;
+    background-image: url("/../../../assets/Background-Form.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    // universal things for every step
+
+    .form-step {
+      font-size: 1.2rem;
+      color: $main-text-color;
+      font-weight: 200;
+      letter-spacing: 0;
+      margin-bottom: 71px;
+    }
+    .form-title {
+      margin-bottom: 35px;
+      font-size: 2.3rem;
+      color: black;
+      font-weight: 500;
+    }
+
+    .form-one {
+      padding-left: 20px;
+      @include desktop {
+        padding-left: 141px;
+      }
+
+
+
+      &__form {
+
+        &__input {
+          margin-right: 30px;
+          appearance: none;
+          width: 40px;
+          height: 40px;
+          vertical-align: middle;
+          border-radius: 3px;
+          border: 1px solid $main-text-color;
+          background: transparent;
+          outline: none;
+          position: relative;
+        }
+
+        &__input:checked {
+          background-color: #FAD648;
+        }
+
+        &__label {
+          font-size: 1.3rem;
+          font-weight: 200;
+          color: black;
+          margin-bottom: 42px;
+          display: block;
+        }
+
+      }
+    }
+
+
+  }
+}
