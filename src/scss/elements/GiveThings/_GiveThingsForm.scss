@@ -38,6 +38,7 @@
       letter-spacing: 0;
       margin-bottom: 71px;
     }
+
     .form-title {
       margin-bottom: 35px;
       font-size: 2.3rem;
@@ -70,7 +71,7 @@
           padding-left: 50px;
           position: relative;
 
-          &::before,&::after {
+          &::before, &::after {
             display: block;
             position: absolute;
             height: 2px;
@@ -98,7 +99,7 @@
         }
       }
 
-      @keyframes  show{
+      @keyframes show {
         0% {
           opacity: 0;
         }
@@ -144,7 +145,6 @@
       @include desktop {
         padding-left: 141px;
       }
-
 
 
       &__form {
@@ -204,14 +204,12 @@
         }
 
 
-
-
       }
     }
 
     // form-three
 
-    .form-three{
+    .form-three {
       padding-left: 20px;
       @include desktop {
         padding-left: 141px;
@@ -244,6 +242,7 @@
             @include tablet {
               max-width: 700px;
             }
+
             .row {
               justify-content: space-between;
             }
@@ -281,23 +280,28 @@
                 }
               }
             }
+
             .children::after {
               content: 'children';
             }
+
             .single-mothers::after {
               content: 'single mothers';
             }
+
             .homeless::after {
               content: 'homeless';
             }
+
             .disabled::after {
               content: 'disabled';
             }
+
             .elder-people::after {
               content: 'elder people';
             }
 
-            .group-people__input:checked{
+            .group-people__input:checked {
               background-color: #FAD648;
             }
           }
@@ -308,10 +312,12 @@
         padding-right: 25px;
         margin-top: 20px;
         max-width: 450px;
+
         &__label {
           font-weight: 600;
           font-size: 1rem;
         }
+
         &__input {
           width: 100%;
           display: block;
@@ -324,5 +330,84 @@
       }
 
     }
+
+    //form- four
+
+    .form-four {
+      padding: 20px;
+      @include desktop {
+        padding-left: 141px;
+      }
+
+
+      &__form {
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        @include desktop {
+          flex-direction: row;
+        }
+
+        .box:nth-of-type(2) {
+          margin-top: 30px;
+
+          @include desktop {
+            margin-top: 0;
+            margin-left: 100px;
+          }
+        }
+
+        .box {
+
+
+          .information {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+          }
+
+
+          .element-box {
+            margin-bottom: 20px;
+            width: 400px;
+            display: flex;
+            flex-direction: column;
+
+
+            @include desktop {
+              flex-direction: row;
+              align-items: center;
+              justify-content: space-between;
+            }
+
+            .form-four__label {
+              line-height: 2rem;
+              width: 30%;
+              font-size: 1.5rem;
+              font-weight: 300;
+              color: $main-text-color;
+            }
+
+            .form-four__input {
+              padding-left: 10px;
+              font-size: 1.2rem;
+              width: 65%;
+              height: 40px;
+              background: transparent;
+              border: 1px solid $second-text-color;
+              resize: none;
+            }
+            .textarea {
+              height: 100px;
+            }
+          }
+
+          .textarea-box {
+            align-items: flex-start;
+          }
+        }
+      }
+    }
+
   }
 }
