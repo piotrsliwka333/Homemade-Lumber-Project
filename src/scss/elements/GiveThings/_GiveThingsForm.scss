@@ -45,6 +45,99 @@
       font-weight: 500;
     }
 
+    .box {
+
+      .selected {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        width: 250px;
+        height: 40px;
+        border: 1px solid $main-text-color;
+        position: relative;
+
+        &::after {
+          transition: 0.3s;
+          display: inline;
+          content: url("/../../../assets/Icon-Arrow-Down.svg");
+          position: absolute;
+          right: 10px;
+        }
+
+        p {
+          font-size: 1.2rem;
+          color: $main-text-color;
+          padding-left: 50px;
+          position: relative;
+
+          &::before,&::after {
+            display: block;
+            position: absolute;
+            height: 2px;
+            width: 25px;
+            background-color: gray;
+            content: '';
+            top: 50%;
+          }
+
+          &::before {
+            left: 15px;
+          }
+
+          &::after {
+            left: 130px;
+          }
+        }
+
+      }
+
+      .active {
+        &::after {
+          transition: 0.3s;
+          transform: rotateX(180deg);
+        }
+      }
+
+      @keyframes  show{
+        0% {
+          opacity: 0;
+        }
+
+        100% {
+          opacity: 1;
+        }
+
+      }
+
+
+      .select-box {
+        margin-left: 150px;
+        padding: 5px;
+        animation-name: show;
+        animation-duration: 0.5s;
+        animation-timing-function: linear;
+        width: 100px;
+        border: 1px solid $main-text-color;
+        border-radius: 2px;
+        margin-top: 20px;
+        font-size: 1.3rem;
+        color: $main-text-color;
+
+        .option {
+          margin-bottom: 15px;
+
+          label {
+            cursor: pointer;
+          }
+
+          input {
+            appearance: none;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
     // form one
     .form-one {
       padding-left: 20px;
@@ -109,103 +202,127 @@
           color: $main-text-color;
 
         }
-        .box {
-
-          .selected {
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            width: 250px;
-            height: 40px;
-            border: 1px solid $main-text-color;
-            position: relative;
-
-            &::after {
-              transition: 0.3s;
-              display: inline;
-              content: url("/../../../assets/Icon-Arrow-Down.svg");
-              position: absolute;
-              right: 10px;
-            }
-
-            p {
-              font-size: 1.2rem;
-              color: $main-text-color;
-              padding-left: 50px;
-              position: relative;
-
-              &::before,&::after {
-                display: block;
-                position: absolute;
-                height: 2px;
-                width: 25px;
-                background-color: gray;
-                content: '';
-                top: 50%;
-              }
-
-              &::before {
-                left: 15px;
-              }
-
-              &::after {
-                left: 130px;
-              }
-            }
-
-          }
-
-          .active {
-            &::after {
-              transition: 0.3s;
-              transform: rotateX(180deg);
-            }
-          }
-
-          @keyframes  show{
-            0% {
-              opacity: 0;
-            }
-
-            100% {
-              opacity: 1;
-            }
-
-          }
-
-
-          .select-box {
-            margin-left: 150px;
-            padding: 5px;
-            animation-name: show;
-            animation-duration: 0.5s;
-            animation-timing-function: linear;
-            width: 100px;
-            border: 1px solid $main-text-color;
-            border-radius: 2px;
-            margin-top: 20px;
-            font-size: 1.3rem;
-            color: $main-text-color;
-
-            .option {
-              margin-bottom: 15px;
-
-              label {
-                cursor: pointer;
-              }
-
-              input {
-                appearance: none;
-                cursor: pointer;
-              }
-            }
-          }
-        }
 
 
 
 
       }
+    }
+
+    // form-three
+
+    .form-three{
+      padding-left: 20px;
+      @include desktop {
+        padding-left: 141px;
+      }
+
+      &__form {
+        height: 400px;
+
+        .select-box__form-three {
+          margin-left: 0;
+          width: 250px;
+          position: absolute;
+          z-index: 2;
+          background-color: #EDECEA;
+        }
+
+        .group-people {
+          margin-top: 40px;
+
+          &__title {
+            font-size: 1rem;
+            font-weight: 600;
+            width: 100%;
+          }
+
+          .container {
+            margin: 0;
+            padding: 0;
+            max-width: 300px;
+            @include tablet {
+              max-width: 700px;
+            }
+            .row {
+              justify-content: space-between;
+            }
+          }
+
+          &__label {
+            margin: 10px 0;
+            height: 40px;
+            display: block;
+
+            .group-people__input {
+              width: 100%;
+              font-size: 1.2rem;
+              border: 1px solid $main-text-color;
+              appearance: none;
+              height: 40px;
+              display: inline-block;
+              vertical-align: middle;
+              background: transparent;
+              outline: none;
+              position: relative;
+
+              &::after {
+                font-size: 1rem;
+                display: block;
+                text-align: center;
+                width: 100%;
+                background: transparent;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                @include desktop {
+                  font-size: 1.2rem;
+                }
+              }
+            }
+            .children::after {
+              content: 'children';
+            }
+            .single-mothers::after {
+              content: 'single mothers';
+            }
+            .homeless::after {
+              content: 'homeless';
+            }
+            .disabled::after {
+              content: 'disabled';
+            }
+            .elder-people::after {
+              content: 'elder people';
+            }
+
+            .group-people__input:checked{
+              background-color: #FAD648;
+            }
+          }
+        }
+      }
+
+      .organization {
+        padding-right: 25px;
+        margin-top: 20px;
+        max-width: 450px;
+        &__label {
+          font-weight: 600;
+          font-size: 1rem;
+        }
+        &__input {
+          width: 100%;
+          display: block;
+          font-size: 1rem;
+          margin-top: 20px;
+          padding: 5px;
+          background-color: transparent;
+          border: 1px solid $main-text-color;
+        }
+      }
+
     }
   }
 }

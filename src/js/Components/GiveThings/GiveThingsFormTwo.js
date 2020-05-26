@@ -2,7 +2,7 @@ import React, {useState} from "react";
 
 export const GiveThingsFormTwo = (props) => {
 	const {onBagsAmount,onBagsAmountFn} = props
-	const [selectBox,setSelectBox] = useState(true)
+	const [selectBox,setSelectBox] = useState(false)
 
 
 	const handleHideSelectBox = () => {
