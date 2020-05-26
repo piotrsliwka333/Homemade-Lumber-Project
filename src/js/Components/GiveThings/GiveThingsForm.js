@@ -5,9 +5,11 @@ import {GiveThingsFormOne} from "./GiveThingsFormOne";
 import {GiveThingsFormTwo} from "./GiveThingsFormTwo";
 import {GiveThingsFormThree} from "./GiveThingsFormThree";
 import {GiveThingsFormFour} from "./GiveThingsFormFour";
+import {GiveThings} from "./GiveThings";
+import {GiveThingsFormSummary} from "./GiveThingsFormSummary";
 
 export const GiveThingsForm = () => {
-	const [step,setStep] = useState(4)
+	const [step,setStep] = useState(5)
 	const [typeOfThings,setTypeOfThings] = useState('goodClothes')
 	const [bagsAmount,setBagsAmount] = useState('Choose')
 	const [city,setCity] = useState('Choose')
@@ -94,6 +96,7 @@ export const GiveThingsForm = () => {
 				{step === 2 && <GiveThingsFormTwo onBagsAmount={bagsAmount}  onBagsAmountFn={handleChangeBagsAmount} />}
 				{step === 3 && <GiveThingsFormThree organization={specificOrganization} onOrganization={handleSpecificOrganization} groupPeople={groupPeople} onGroupPeople={handleGroupPeople} onCity={city} onChooseCity={handleChooseCity} />}
 				{step === 4 && <GiveThingsFormFour pickUpDetails onPickUpDetails={handlePickUpDetails}/>}
+				{step === 5 && <GiveThingsFormSummary pickUpDetails={pickUpDetails} location={city} target={groupPeople}/>}
 				<GiveThingsFormButtons>
 					{step === 1 && <GiveThingsFormButton actionClick={handleNextStep} name='Next'/>}
 					{(step === 2 || step === 3 || step === 4) && <>
