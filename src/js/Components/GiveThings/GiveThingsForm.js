@@ -10,7 +10,7 @@ import {GiveThingsFormSummary} from "./GiveThingsFormSummary";
 import {GiveThingsFormSent} from "./GiveThingsFormSent";
 
 export const GiveThingsForm = () => {
-	const [step, setStep] = useState(4)
+	const [step, setStep] = useState(1)
 	const [typeOfThings, setTypeOfThings] = useState('goodClothes')
 	const [bagsAmount, setBagsAmount] = useState('Choose')
 	const [bagsAmountError, setBagsAmountError] = useState(false);
@@ -74,17 +74,17 @@ export const GiveThingsForm = () => {
 
 	//set Location Error
 
-	const handleNextStepCityValidation = (e, city, whoHelp) => {
+	const handleNextStepCityValidation = (e, city, whoHelp, groupPeopleError, cityError) => {
 		e.preventDefault();
-		if (city === 'Choose') {
-			setCityError(true)
-			console.log(city === 'Choose')
-		}
 		if (whoHelp.children === false && whoHelp.singleMothers === false && whoHelp.homeless === false
 			&& whoHelp.disabled === false && whoHelp.elderPeople === false) {
 			setGroupPeopleError(true)
 
-		} else {
+		}
+		if (city === 'Choose') {
+			setCityError(true)
+			console.log(city === 'Choose')
+		} else if ((whoHelp.children === true || whoHelp.singleMothers === true || whoHelp.homeless === true || whoHelp.disabled === true || whoHelp.elderPeople === true) && cityError === false) {
 			setStep(prevState => prevState + 1)
 			setCityError(false)
 			setGroupPeopleError(false)
@@ -102,9 +102,9 @@ export const GiveThingsForm = () => {
 
 	// PickUpDetails Validation
 
-	const handleNextStepPickUpDetailsValidation = (e,pickUpDetailsErrors,pickUpDetails) => {
+	const handleNextStepPickUpDetailsValidation = (e, pickUpDetailsErrors, pickUpDetails) => {
 		e.preventDefault();
-		if(pickUpDetailsErrors.street === true || pickUpDetails.street.length === 0) {
+		if (pickUpDetailsErrors.street === true || pickUpDetails.street.length === 0) {
 			setPickUpDetailsErrors(prevState => {
 				return {
 					...prevState,
@@ -112,7 +112,7 @@ export const GiveThingsForm = () => {
 				}
 			})
 		}
-		if(pickUpDetailsErrors.city === true || pickUpDetails.city.length === 0) {
+		if (pickUpDetailsErrors.city === true || pickUpDetails.city.length === 0) {
 			setPickUpDetailsErrors(prevState => {
 				return {
 					...prevState,
@@ -120,7 +120,7 @@ export const GiveThingsForm = () => {
 				}
 			})
 		}
-		if(pickUpDetailsErrors.postCode === true || pickUpDetails.postCode.length === 0) {
+		if (pickUpDetailsErrors.postCode === true || pickUpDetails.postCode.length === 0) {
 			setPickUpDetailsErrors(prevState => {
 				return {
 					...prevState,
@@ -128,7 +128,7 @@ export const GiveThingsForm = () => {
 				}
 			})
 		}
-		if(pickUpDetailsErrors.phoneNumber === true || pickUpDetails.phoneNumber.length === 0) {
+		if (pickUpDetailsErrors.phoneNumber === true || pickUpDetails.phoneNumber.length === 0) {
 			setPickUpDetailsErrors(prevState => {
 				return {
 					...prevState,
@@ -136,7 +136,7 @@ export const GiveThingsForm = () => {
 				}
 			})
 		}
-		if(pickUpDetailsErrors.date === true || pickUpDetails.date.length === 0) {
+		if (pickUpDetailsErrors.date === true || pickUpDetails.date.length === 0) {
 			setPickUpDetailsErrors(prevState => {
 				return {
 					...prevState,
@@ -144,14 +144,15 @@ export const GiveThingsForm = () => {
 				}
 			})
 		}
-		if(pickUpDetailsErrors.hour === true || pickUpDetails.hour.length === 0) {
+		if (pickUpDetailsErrors.hour === true || pickUpDetails.hour.length === 0) {
 			setPickUpDetailsErrors(prevState => {
 				return {
 					...prevState,
 					hour: true
 				}
 			})
-		}else {
+		} else if (pickUpDetailsErrors.street === false && pickUpDetailsErrors.city === false && pickUpDetailsErrors.postCode === false && pickUpDetailsErrors.postCode === false
+			&& pickUpDetailsErrors.phoneNumber === false && pickUpDetailsErrors.date === false && pickUpDetailsErrors.hour === false ){
 			setStep(prevState => prevState + 1)
 		}
 
@@ -227,6 +228,7 @@ export const GiveThingsForm = () => {
 			let regex = /\d{2}-\d{3}/g;
 			return regex.test(postcode);
 		}
+
 		console.log(validPostcode(value))
 
 		if (!validPostcode(value)) {
@@ -266,6 +268,7 @@ export const GiveThingsForm = () => {
 			let regex = /\d{3}-?\d{3}-?\d{3}/g;
 			return regex.test(postcode);
 		}
+
 		console.log(validNumber(value))
 
 		if (!validNumber(value)) {
@@ -338,6 +341,7 @@ export const GiveThingsForm = () => {
 			let regex = /\d{2}:?\d{2}/g;
 			return regex.test(postcode);
 		}
+
 		console.log(validTime(value))
 
 		if (!validTime(value)) {
@@ -432,7 +436,9 @@ export const GiveThingsForm = () => {
 				                     onOrganization={handleSpecificOrganization} groupPeople={groupPeople}
 				                     onGroupPeople={handleGroupPeople} onCity={city} onChooseCity={handleChooseCity}/>}
 				{step === 4 &&
-				<GiveThingsFormFour  onTimeValidation={handleTimeValidation} onDateValidation={handleDateValidation} onNumberValidation={handleNumberValidation} onPostCodeValidation={handlePostCodeValidation} onCityValidation={handleCityValidation} onStreetValidation={handleStreetValidation}
+				<GiveThingsFormFour onTimeValidation={handleTimeValidation} onDateValidation={handleDateValidation}
+				                    onNumberValidation={handleNumberValidation} onPostCodeValidation={handlePostCodeValidation}
+				                    onCityValidation={handleCityValidation} onStreetValidation={handleStreetValidation}
 				                    pickUpDetailsErrors={pickUpDetailsErrors} pickUpDetails={pickUpDetails}
 				                    onPickUpDetails={handlePickUpDetails}/>}
 				{step === 5 && <GiveThingsFormSummary pickUpDetails={pickUpDetails} location={city} target={groupPeople}/>}
@@ -444,17 +450,19 @@ export const GiveThingsForm = () => {
 						<GiveThingsFormButton actionClick={handlePrevStep} name='Back'/>
 					</>}
 					{(step === 3) && <>
-						<GiveThingsFormButton argumentTwo={groupPeople} argument={city} actionClick={handleNextStepCityValidation}
+						<GiveThingsFormButton argumentFour={groupPeopleError} argumentThree={cityError} argumentTwo={groupPeople}
+						                      argument={city} actionClick={handleNextStepCityValidation}
 						                      name='Next'/>
 						<GiveThingsFormButton actionClick={handlePrevStep} name='Back'/>
 					</>}
 					{(step === 4) && <>
-						<GiveThingsFormButton argumentTwo={pickUpDetails} argument={pickUpDetailsErrors} actionClick={handleNextStepPickUpDetailsValidation} name='Next'/>
+						<GiveThingsFormButton argumentTwo={pickUpDetails} argument={pickUpDetailsErrors}
+						                      actionClick={handleNextStepPickUpDetailsValidation} name='Next'/>
 						<GiveThingsFormButton actionClick={handlePrevStep} name='Back'/>
 					</>}
 					{step === 5 && <>
 						<GiveThingsFormButton actionClick={handlePrevStep} name='Back'/>
-						<GiveThingsFormButton name='Confirm'/>
+						<GiveThingsFormButton actionClick={handleNextStep} name='Confirm'/>
 					</>}
 				</GiveThingsFormButtons>
 			</div>
