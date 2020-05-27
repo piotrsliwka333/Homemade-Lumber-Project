@@ -21,7 +21,7 @@
   }
 
   &__wraper {
-    height: 883px;
+    min-height: 883px;
     width: 100%;
     padding: 36px 0;
     background-image: url("/../../../assets/Background-Form.jpg");
@@ -63,6 +63,10 @@
           content: url("/../../../assets/Icon-Arrow-Down.svg");
           position: absolute;
           right: 10px;
+        }
+
+        .error {
+          color: tomato;
         }
 
         p {
@@ -229,6 +233,10 @@
         .group-people {
           margin-top: 40px;
 
+          .error {
+            color: tomato;
+          }
+
           &__title {
             font-size: 1rem;
             font-weight: 600;
@@ -380,12 +388,18 @@
               justify-content: space-between;
             }
 
+
+
             .form-four__label {
               line-height: 2rem;
               width: 30%;
               font-size: 1.5rem;
               font-weight: 300;
               color: $main-text-color;
+            }
+
+            .error {
+              color: tomato;
             }
 
             .form-four__input {
@@ -410,7 +424,11 @@
     }
 
     .summary {
-      padding-left: 141px;
+      padding: 20px;
+
+      @include desktop {
+        padding-left: 141px;
+      }
 
       &__title {
         font-weight: 600;
@@ -467,7 +485,8 @@
               margin-bottom: 20px;
               width: 400px;
               display: flex;
-              flex-direction: column;
+              align-items: center;
+              justify-content: space-between;
 
 
               @include desktop {
@@ -496,8 +515,39 @@
           }
         }
       }
-
     }
+
+    // form sent
+    .form-sent {
+      height: 883px;
+      display: flex;
+      align-items: center;
+      &-box {
+        padding: 20px;
+        width: 100%;
+
+        @include desktop {
+          margin-left: 150px;
+          width: 40%;
+        }
+
+        &__title {
+          line-height: 3.3rem;
+          text-align: center;
+          color: $main-text-color;
+          font-size: 2.7rem;
+          margin-bottom: 30px;
+
+        }
+        &__decoration {
+          width: 253px;
+          display: block;
+          margin: 0 auto;
+        }
+      }
+    }
+
+
 
   }
 }

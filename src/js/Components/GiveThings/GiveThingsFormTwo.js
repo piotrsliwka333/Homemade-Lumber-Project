@@ -1,11 +1,13 @@
 import React, {useState} from "react";
+import {GiveThingsFormButtons} from "./GiveThingsFormButtons";
 
 export const GiveThingsFormTwo = (props) => {
-	const {onBagsAmount,onBagsAmountFn} = props
+	const {onBagsAmount,onBagsAmountFn,bagsAmountError,setBagsAmountError} = props
 	const [selectBox,setSelectBox] = useState(false)
 
 
 	const handleHideSelectBox = () => {
+		setBagsAmountError();
 		setSelectBox(false)
 	}
 
@@ -26,7 +28,7 @@ export const GiveThingsFormTwo = (props) => {
 				<span className='form-two__form__amount'>Amount 60l bags:</span>
 				<div className='box'>
 					<div onClick={handleOpenSelectBox} className={selectBox ? 'selected active' : 'selected'}>
-						<p>
+						<p className={bagsAmountError ? 'error' : null}>
 							{onBagsAmount}
 						</p>
 					</div>

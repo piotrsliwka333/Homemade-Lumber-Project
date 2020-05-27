@@ -22,7 +22,7 @@ export const GiveThingsFormSummary = (props) => {
 			<h3 className='summary__title'>Summary of Your donation</h3>
 			<div className='container'>
 				<div className='row'>
-					<div className='box col-xl-12'>
+					<div className='box col-10 col-md-10 col-xl-12'>
 						<p className='action__title'>You give:</p>
 						<div className='target__box'>
 							<img className='target__box-icon' src='../../../assets/Icon-1.svg'/>
@@ -37,14 +37,14 @@ export const GiveThingsFormSummary = (props) => {
 							<span className='location'>for location:{location}</span>
 						</div>
 					</div>
-					<div className='box-details col-xl-5'>
+					<div className='box-details col-10 col-md-10 col-xl-5'>
 						<p className='box-details__description'>Pickup Adress:</p>
 						<PickUpDetailsElement name='Street' value={pickUpDetails.street}  />
 						<PickUpDetailsElement name='City' value={pickUpDetails.city}  />
 						<PickUpDetailsElement name='Post Code' value={pickUpDetails.postCode}  />
 						<PickUpDetailsElement name='Phone Number' value={pickUpDetails.phoneNumber}  />
 					</div>
-					<div className='box-details'>
+					<div className='box-details col-10 col-md-10 col-xl-5'>
 						<p className='box-details__description'>Pickup date:</p>
 						<PickUpDetailsElement name='Date' value={pickUpDetails.date}  />
 						<PickUpDetailsElement name='Hour' value={pickUpDetails.hour}  />

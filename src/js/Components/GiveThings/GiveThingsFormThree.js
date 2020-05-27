@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react"
 
 export const GiveThingsFormThree = (props) => {
-	const {onChooseCity, onCity,onGroupPeople,groupPeople , onOrganization,organization} = props
+	const {onChooseCity, onCity,onGroupPeople,groupPeople ,onOrganization,organization,cityError,setCityError,groupPeopleError} = props
 	const [selectBox,setSelectBox] = useState(false)
 	const [people,setPeople] = useState(groupPeople);
 
@@ -12,6 +12,7 @@ export const GiveThingsFormThree = (props) => {
 
 
 	const handleHideSelectBox = () => {
+		setCityError();
 		setSelectBox(false)
 	}
 
@@ -26,7 +27,7 @@ export const GiveThingsFormThree = (props) => {
 			<form className='form-three__form'>
 				<div className='box'>
 					<div onClick={handleOpenSelectBox} className={selectBox ? 'selected active' : 'selected'}>
-						<p>
+						<p className={cityError ? 'error' : null}>
 							{onCity}
 						</p>
 					</div>
@@ -64,7 +65,7 @@ export const GiveThingsFormThree = (props) => {
 					</div>}
 				</div>
 				<fieldset className='group-people'>
-					<legend className='group-people__title'>Who you want help ?</legend>
+					<legend className={groupPeopleError ? 'group-people__title error' : 'group-people__title'}>Who you want help ?</legend>
 					<div className='container'>
 						<div className='row'>
 							<label className='group-people__label col-6 col-md-6 col-xl-3'>

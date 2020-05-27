@@ -1,19 +1,25 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 
 const FormElement = (props) => {
-	const {name,type,text,onPickUpDetails,pickUpDetails} = props
+	const {name, type, text, onPickUpDetails, pickUpDetails, pickUpDetailsErrors} = props
+	const [error, setError] = useState(pickUpDetailsErrors[name])
+
+	useEffect(() => {
+		setError(pickUpDetailsErrors[name])
+	}, [pickUpDetailsErrors[name]])
 
 	return (
 		<div className='element-box'>
-			<label className='form-four__label'>{text}</label>
-			<input name={name} type={type} value={pickUpDetails[name]} onChange={e => onPickUpDetails(e)} className='form-four__input'/>
+			<label className={error ? 'form-four__label error' : 'form-four__label'}>{text}</label>
+			<input name={name} type={type} value={pickUpDetails[name]} onChange={e => onPickUpDetails(e)}
+			       className='form-four__input'/>
 		</div>
 	)
 }
 
 export const GiveThingsFormFour = (props) => {
-	const {onPickUpDetails,pickUpDetails} = props
+	const {onPickUpDetails, pickUpDetails,onTimeValidation, onStreetValidation, onCityValidation, pickUpDetailsErrors,onDateValidation,  onPostCodeValidation, onNumberValidation} = props
 
 
 	return (
@@ -23,18 +29,26 @@ export const GiveThingsFormFour = (props) => {
 			<form className='form-four__form'>
 				<div className='box'>
 					<p className='information'>Pickup Adress</p>
-					<FormElement name='street' pickUpDetails={pickUpDetails} onPickUpDetails={onPickUpDetails} type='text' text='Street' />
-					<FormElement name='city' pickUpDetails={pickUpDetails} onPickUpDetails={onPickUpDetails} type='text' text='City' />
-					<FormElement name='postCode' pickUpDetails={pickUpDetails} onPickUpDetails={onPickUpDetails} type='number' text='Post Code' />
-					<FormElement name='phoneNumber' pickUpDetails={pickUpDetails} onPickUpDetails={onPickUpDetails} type='number' text='Phone NumberS' />
+					<FormElement name='street' pickUpDetailsErrors={pickUpDetailsErrors} pickUpDetails={pickUpDetails}
+					             onPickUpDetails={onStreetValidation} type='text' text='Street'/>
+					<FormElement name='city' pickUpDetailsErrors={pickUpDetailsErrors} pickUpDetails={pickUpDetails}
+					             onPickUpDetails={onCityValidation} type='text' text='City'/>
+					<FormElement name='postCode' pickUpDetailsErrors={pickUpDetailsErrors} pickUpDetails={pickUpDetails}
+					             onPickUpDetails={onPostCodeValidation} type='text' text='Post Code'/>
+					<FormElement name='phoneNumber' pickUpDetailsErrors={pickUpDetailsErrors} pickUpDetails={pickUpDetails}
+					             onPickUpDetails={onNumberValidation} type='tel' text='Phone NumberS'/>
 				</div>
 				<div className='box'>
 					<p className='information'>Pickup date</p>
-					<FormElement name='date' pickUpDetails={pickUpDetails} onPickUpDetails={onPickUpDetails}  type='date' text='Date'/>
-					<FormElement name='hour' pickUpDetails={pickUpDetails} onPickUpDetails={onPickUpDetails} type='hour' text='Hour'/>
+					<FormElement name='date' pickUpDetailsErrors={pickUpDetailsErrors} pickUpDetails={pickUpDetails}
+					             onPickUpDetails={onDateValidation} type='date' text='Date'/>
+					<FormElement name='hour' pickUpDetailsErrors={pickUpDetailsErrors} pickUpDetails={pickUpDetails}
+					             onPickUpDetails={onTimeValidation} type='time' text='Hour'/>
 					<div className='element-box textarea-box'>
-						<label className='form-four__label'>Courier Message</label>
-						<textarea value={pickUpDetails.courierMessage} name='courierMessage' onChange={e => onPickUpDetails(e)} className='form-four__input textarea' />
+						<label className={pickUpDetailsErrors['courierMessage'] ? 'form-four__label error' : 'form-four__label'}>Courier
+							Message</label>
+						<textarea value={pickUpDetails.courierMessage} name='courierMessage' onChange={e => onPickUpDetails(e)}
+						          className='form-four__input textarea'/>
 					</div>
 				</div>
 
