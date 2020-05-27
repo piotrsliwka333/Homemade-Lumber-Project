@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import {MainTemplate} from "../MainTemplate/MainTemplate";
 import {HashRouter, Link} from "react-router-dom";
+import fire from "../../firebase/firebase";
 
 export const Registration = () => {
 	const [logged,setLogged] = useState(false)
@@ -71,8 +72,11 @@ export const Registration = () => {
 		}
 	}
 
+	const auth = fire.auth()
 	const LogIn = () => { // this function will change logged on true and this info will be sent by
 		setLogged(true) // props to main Template to show user name and option to log out
+		const promise = auth.createUserWithEmailAndPassword(email,password);
+		promise.catch(e => console.log(e))
 	}
 
 

@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {MainTemplate} from "../MainTemplate/MainTemplate";
 import {BrowserRouter, HashRouter, Link} from "react-router-dom";
-
+import fire from "../../firebase/firebase";
 
 
 export const Login = () => {
@@ -48,10 +48,11 @@ export const Login = () => {
 		}
 	}
 
-
+	const auth = fire.auth()
 	const LogIn = () => {
 		setLogged(true)
-		localStorage.setItem('user','true')
+		const promise = auth.signInWithEmailAndPassword(email,password);
+		promise.catch(e => console.log(e))
 	}
 
 

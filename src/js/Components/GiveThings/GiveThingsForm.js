@@ -8,6 +8,7 @@ import {GiveThingsFormFour} from "./GiveThingsFormFour";
 import {GiveThings} from "./GiveThings";
 import {GiveThingsFormSummary} from "./GiveThingsFormSummary";
 import {GiveThingsFormSent} from "./GiveThingsFormSent";
+import fire from "../../firebase/firebase";
 
 export const GiveThingsForm = () => {
 	const [step, setStep] = useState(1)
@@ -152,7 +153,7 @@ export const GiveThingsForm = () => {
 				}
 			})
 		} else if (pickUpDetailsErrors.street === false && pickUpDetailsErrors.city === false && pickUpDetailsErrors.postCode === false && pickUpDetailsErrors.postCode === false
-			&& pickUpDetailsErrors.phoneNumber === false && pickUpDetailsErrors.date === false && pickUpDetailsErrors.hour === false ){
+			&& pickUpDetailsErrors.phoneNumber === false && pickUpDetailsErrors.date === false && pickUpDetailsErrors.hour === false) {
 			setStep(prevState => prevState + 1)
 		}
 
@@ -422,6 +423,27 @@ export const GiveThingsForm = () => {
 		})
 	}
 
+	// sent data to firebase
+
+
+	//Reference messages collection
+
+	let messagesRef = fire.database().ref('message')
+
+	//save message to firebase
+
+	const saveMessage = (e, typeOfThings, bagsAmount, city, groupPeople, pickUpDetails) => {
+		setStep(prevState => prevState + 1)
+		let newMessageRef = messagesRef.push();
+		newMessageRef.set({
+			typeOfThings: typeOfThings,
+			bagsAmount: bagsAmount,
+			city: city,
+			groupPeople: groupPeople,
+			pickUpDetails: pickUpDetails
+		}).catch(e => console.log(e));
+	}
+
 
 	return (
 		<section className='things-form'>
@@ -462,7 +484,8 @@ export const GiveThingsForm = () => {
 					</>}
 					{step === 5 && <>
 						<GiveThingsFormButton actionClick={handlePrevStep} name='Back'/>
-						<GiveThingsFormButton actionClick={handleNextStep} name='Confirm'/>
+						<GiveThingsFormButton argument={typeOfThings} argumentTwo={bagsAmount} argumentThree={city}
+						                      argumentFour={groupPeople} argumentFive={pickUpDetails} actionClick={saveMessage} name='Confirm'/>
 					</>}
 				</GiveThingsFormButtons>
 			</div>

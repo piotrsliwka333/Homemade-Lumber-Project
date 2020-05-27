@@ -1,9 +1,9 @@
 import React from "react";
 
 export const GiveThingsFormButton = (props) => {
-	const {name,actionClick,argument,argumentTwo,argumentThree,argumentFour} = props
+	const {name,actionClick,argument,argumentTwo,argumentThree,argumentFour,argumentFive} = props
 	return (
-		<button onClick={e => actionClick(e,argument,argumentTwo,argumentThree,argumentFour)} className='things-form__button'>{name}</button>
+		<button onClick={e => actionClick(e,argument,argumentTwo,argumentThree,argumentFour,argumentFive)} className='things-form__button'>{name}</button>
 	)
 }
 

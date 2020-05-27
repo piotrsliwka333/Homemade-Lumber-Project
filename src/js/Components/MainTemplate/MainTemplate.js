@@ -1,16 +1,21 @@
 import React, {useEffect, useState} from "react";
 import {HashRouter, Link} from "react-router-dom";
 import {Link as LinkScroll} from "react-scroll"
+import fire from "../../firebase/firebase";
 
 const Logged = ({userName}) => {
 
 	return (
 		<>
-			<p className='user-box__name'>Welcome piotrsliwka333@gmail.com!</p>
+			<p className='user-box__name'>Welcome: {userName}</p>
 			<Link to='/give-things' className='user-box__stuff'>Give back Stuff</Link>
-			<Link to='/logout' className='user-box__log-out'>Log out</Link>
+			<Link to='/logout' onClick={logOutFn} className='user-box__log-out'>Log out</Link>
 		</>
 	)
+}
+
+const logOutFn = () => {
+	fire.auth().signOut().catch(e => console.log(e));
 }
 
 const LoggedOut = () => {
@@ -28,9 +33,20 @@ const LoggedOut = () => {
 
 export const MainTemplate = (props) => {
 	const {logIn} = props
-	const [logged,setLogged] = useState(logIn)
+	const [logged,setLogged] = useState(false)
 	const [userName,setUserName] = useState('')
 	const [menuOpen,setMenuOpen] = useState(false)
+
+
+
+	fire.auth().onAuthStateChanged(firebaseUser => {
+		if(firebaseUser) {
+			setLogged(true)
+			setUserName(firebaseUser.email)
+		} else {
+			setLogged(false)
+		}
+	})
 
 
 	useEffect(()=> {
