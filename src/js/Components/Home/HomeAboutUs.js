@@ -1,8 +1,13 @@
 import React from "react";
 import Decoration from '../../../assets/Decoration.svg'
 import Signature from '../../../assets/Signature.svg'
+import PeoplePhoto from '../../../assets/People.jpg'
 
 export const HomeAboutUs = () => {
+
+	const style = {
+		backgroundImage: `url(${PeoplePhoto})`
+	}
 
 
 	return (
@@ -15,7 +20,7 @@ export const HomeAboutUs = () => {
 				</p>
 				<img className='about-us__content__signature' alt='signature' src={Signature}/>
 			</div>
-			<div className='about-us__image'>
+			<div className='about-us__image' style={style}>
 
 			</div>
 

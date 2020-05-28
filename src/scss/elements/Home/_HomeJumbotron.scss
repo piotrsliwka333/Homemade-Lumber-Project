@@ -1,6 +1,6 @@
 
 .jumbotron {
-  background-image: url("/../../../assets/Home-Hero-Image.jpg");
+  // background was imported in js coz I use file-Loader and the out doesn't contain this image
   background-repeat: no-repeat;
   background-position: left -400px center;
   background-size: contain;

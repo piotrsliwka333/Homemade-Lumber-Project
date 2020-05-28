@@ -1,10 +1,16 @@
 import React from "react";
+import ThreeColumnsBackground from '../../../assets/3ColumnsBackground.png'
+import HomeHero from "../../../assets/Home-Hero-Image.jpg";
 
 export const HomeThreeColumns = () => {
 
 
+	const style = {
+		backgroundImage: `url(${ThreeColumnsBackground})`
+	}
+
 	return (
-		<section className='three-columns'>
+		<section className='three-columns' style={style}>
 			<div className='container'>
 				<div className='row'>
 					<div className='col-6 col-md-5 col-xl-3 box'>

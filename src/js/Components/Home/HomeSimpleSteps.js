@@ -12,7 +12,7 @@ export const HomeSimpleSteps = () => {
 	return (
 		<section className='simple-steps' id='simple-steps'>
 			<h4 className='simple-steps__title'>4 Simple Steps Are Enough</h4>
-			<img className='simple-steps__decoration' src={Decoration}/>
+			<img className='simple-steps__decoration' alt='Decoration' src={Decoration}/>
 			<article className='simple-steps__instructions'>
 				<div className='container'>
 					<div className='row'>

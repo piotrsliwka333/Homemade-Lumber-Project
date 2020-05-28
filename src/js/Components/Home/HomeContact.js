@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import Decoration from '../../../assets/Decoration.svg'
+import ContactBackground from '../../../assets/Background-Contact-Form.jpg'
 
 export const HomeContact = () => {
 	const [name,setName] = useState('')
@@ -71,10 +72,12 @@ export const HomeContact = () => {
 		}
 	}
 
-
+	const style = {
+		backgroundImage: `url(${ContactBackground})`
+	}
 
 	return (
-		<section className='contact' id='contact'>
+		<section className='contact' id='contact' style={style}>
 			<div className='contact-background'>
 					<div className='contact-box'>
 						<h6 className='contact-box__title'>Skontaktuj się z nami</h6>
