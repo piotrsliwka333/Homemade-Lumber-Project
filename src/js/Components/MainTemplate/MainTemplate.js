@@ -103,10 +103,10 @@ export const MainTemplate = (props) => {
 					<small className='footer-box__copyrights'>Copyright by Coders Lab</small>
 					<div className='footer-box__icons'>
 						<a href='#' className='footer-icon'>
-							<img src='/../../../assets/Facebook.svg'/>
+							<img alt='social-media-facebook' src='../../../assets/Facebook.svg'/>
 						</a>
 						<a href='#' className='footer-icon'>
-							<img src='../../../assets/Instagram.svg'/>
+							<img alt='social-media-instagram' src='../../../assets/Instagram.svg'/>
 						</a>
 					</div>
 				</div>
