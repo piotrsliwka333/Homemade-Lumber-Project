@@ -1,4 +1,5 @@
 import React from "react";
+import Decoration from '../../../assets/Decoration.svg'
 
 export const GiveThingsFormSent = () => {
 
@@ -8,7 +9,7 @@ export const GiveThingsFormSent = () => {
 				<h3 className='form-sent-box__title'>
 					Thank you for submitting the form. We will send you all the information about receipt.
 				</h3>
-				<img className='form-sent-box__decoration' src='../../../assets/Decoration.svg'/>
+				<img className='form-sent-box__decoration' alt='Decoration' src={Decoration}/>
 			</div>
 		</div>
 

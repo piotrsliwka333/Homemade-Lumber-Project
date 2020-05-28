@@ -1,4 +1,5 @@
 import React from "react";
+import Decoration from '../../../assets/Decoration.svg'
 
 const GiveThingsJumbotronSteps = (props) => {
 	return (
@@ -26,7 +27,7 @@ export const GiveThingsJumbotron = () => {
 						<h1 className='things-jumbotron__title'>
 							Give back things you don't want anymore
 						</h1>
-						<img className='things-jumbotron__decoration' src='../../../assets/Decoration.svg'/>
+						<img className='things-jumbotron__decoration' src={Decoration}/>
 						<h2 className='things-jumbotron__subtitle'>4 Simple Steps Are Enough</h2>
 						<GiveThingsJumbotronSteps>
 							<GiveThingsJumbotronStepsElement name='Choose things' number='1'/>

@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import Decoration from '../../../assets/Decoration.svg'
 
 export const HomeContact = () => {
 	const [name,setName] = useState('')
@@ -77,7 +78,7 @@ export const HomeContact = () => {
 			<div className='contact-background'>
 					<div className='contact-box'>
 						<h6 className='contact-box__title'>Skontaktuj się z nami</h6>
-						<img className='contact-box__decoration' src='../../../assets/Decoration.svg'/>
+						<img className='contact-box__decoration' alt='Decoration' src={Decoration}/>
 						{formSent && <p className='form-sent'>Wiadomość została wysłana! <br/> Wkrótce się  skontaktujemy</p>}
 						<form onSubmit={handleSubmit} className='contact-box__form'>
 							<div className='input__group'>

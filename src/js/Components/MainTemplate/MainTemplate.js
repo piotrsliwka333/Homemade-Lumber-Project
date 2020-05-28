@@ -2,6 +2,8 @@ import React, {useEffect, useState} from "react";
 import {HashRouter, Link} from "react-router-dom";
 import {Link as LinkScroll} from "react-scroll"
 import fire from "../../firebase/firebase";
+import facebook from '../../../assets/Facebook.svg'
+import instagram from '../../../assets/Instagram.svg'
 
 const Logged = ({userName}) => {
 
@@ -103,10 +105,10 @@ export const MainTemplate = (props) => {
 					<small className='footer-box__copyrights'>Copyright by Coders Lab</small>
 					<div className='footer-box__icons'>
 						<a href='#' className='footer-icon'>
-							<img alt='social-media-facebook' src='../../../assets/Facebook.svg'/>
+							<img alt='social-media-facebook' alt='social media facebook' src={facebook}/>
 						</a>
 						<a href='#' className='footer-icon'>
-							<img alt='social-media-instagram' src='../../../assets/Instagram.svg'/>
+							<img alt='social-media-instagram' alt='social media instagram' src={instagram}/>
 						</a>
 					</div>
 				</div>

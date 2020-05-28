@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import {MainTemplate} from "../MainTemplate/MainTemplate";
 import {HashRouter, Link} from "react-router-dom";
 import fire from "../../firebase/firebase";
+import Decoration from '../../../assets/Decoration.svg'
 
 export const Registration = () => {
 	const [logged,setLogged] = useState(false)
@@ -84,7 +85,7 @@ export const Registration = () => {
 		<MainTemplate logIn={logged}>
 			<section className='registration'>
 				<h1 className='registration__title'>Register Account</h1>
-				<img className='registration__decoration' src='../../../assets/Decoration.svg'/>
+				<img className='registration__decoration' alt='Decoration' src={Decoration}/>
 				<HashRouter>
 					<div className='registration-box'>
 						<form onSubmit={handleSubmit} className='registration-box__form'>

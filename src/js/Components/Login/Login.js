@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {MainTemplate} from "../MainTemplate/MainTemplate";
 import {BrowserRouter, HashRouter, Link} from "react-router-dom";
 import fire from "../../firebase/firebase";
-
+import Decoration from '../../../assets/Decoration.svg'
 
 export const Login = () => {
 	const [logged,setLogged] = useState(false)
@@ -60,7 +60,7 @@ export const Login = () => {
 		<MainTemplate logIn={logged}>
 			<section className='login'>
 				<h1 className='login__title'>Zaloguj się</h1>
-				<img className='login__decoration' src='../../../assets/Decoration.svg'/>
+				<img className='login__decoration' alt='Decoration' src={Decoration}/>
 				<HashRouter>
 					<div className='login-box'>
 						<form onSubmit={handleSubmit} className='login-box__form'>

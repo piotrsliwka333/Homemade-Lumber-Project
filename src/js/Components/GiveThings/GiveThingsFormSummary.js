@@ -1,4 +1,6 @@
 import React, {useEffect, useState} from "react";
+import Icon1 from '../../../assets/Icon-1.svg'
+import Icon4 from '../../../assets/Icon-4.svg'
 
 const PickUpDetailsElement = (props) => {
 	const {name,value} = props
@@ -25,7 +27,7 @@ export const GiveThingsFormSummary = (props) => {
 					<div className='box col-10 col-md-10 col-xl-12'>
 						<p className='action__title'>You give:</p>
 						<div className='target__box'>
-							<img className='target__box-icon' src='../../../assets/Icon-1.svg'/>
+							<img className='target__box-icon' alt='t-shirt icon' src={Icon1}/>
 							{target.children && <span>Children,</span>}
 							{target.singleMothers && <span>Single Mothers,</span>}
 							{target.homeless && <span>Homeless,</span>}
@@ -33,7 +35,7 @@ export const GiveThingsFormSummary = (props) => {
 							{target.elderPeople && <span>Elder People,</span>}
 						</div>
 						<div className='target__box'>
-							<img className='target__box-icon' src='../../../assets/Icon-4.svg'/>
+							<img className='target__box-icon' src={Icon4}/>
 							<span className='location'>for location:{location}</span>
 						</div>
 					</div>

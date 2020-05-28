@@ -4,7 +4,7 @@ import {HomeHelpInformations} from "./HomeHelpInformations";
 import {HomeHelpFoundations} from "./HomeHelpFoundations";
 import {HomeHelpCollections} from "./HomeHelpCollections";
 import {HomeHelpOrganizations} from "./HomeHelpOrganizations";
-
+import Decoration from '../../../assets/Decoration.svg'
 
 export const HomeHelp = () => {
 	const [content,setContent] = useState('foundations')
@@ -19,7 +19,7 @@ export const HomeHelp = () => {
 	return (
 		<section className='help' id='help'>
 			<h6 className='help__title'>Who we help ?</h6>
-			<img src='../../../assets/Decoration.svg' className='help__decoration'/>
+			<img src={Decoration} alt='Decoration' className='help__decoration'/>
 			<div className='help__buttons'>
 				<a name={'foundations'} onClick={changeContent} className={content === 'foundations' ? 'btn active-btn' : 'btn'}>Foundations</a>
 				<a name='organizations' onClick={changeContent}
