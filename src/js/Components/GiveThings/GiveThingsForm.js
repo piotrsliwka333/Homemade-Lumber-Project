@@ -9,6 +9,7 @@ import {GiveThings} from "./GiveThings";
 import {GiveThingsFormSummary} from "./GiveThingsFormSummary";
 import {GiveThingsFormSent} from "./GiveThingsFormSent";
 import fire from "../../firebase/firebase";
+import backgroundForm from '../../../assets/Background-Form.jpg'
 
 export const GiveThingsForm = () => {
 	const [step, setStep] = useState(1)
@@ -444,11 +445,14 @@ export const GiveThingsForm = () => {
 		}).catch(e => console.log(e));
 	}
 
+	const style = {
+		backgroundImage: `url(${backgroundForm})`
+	}
 
 	return (
 		<section className='things-form'>
 			{step < 5 && <GiveThingsFormInformation step={step}/>}
-			<div className='things-form__wraper'>
+			<div className='things-form__wraper' style={style}>
 				{step === 1 && <GiveThingsFormOne currentType={typeOfThings} onType={handleChangeType}/>}
 				{step === 2 && <GiveThingsFormTwo setBagsAmountError={handleSetBagsError} bagsAmountError={bagsAmountError}
 				                                  onBagsAmount={bagsAmount} onBagsAmountFn={handleChangeBagsAmount}/>}

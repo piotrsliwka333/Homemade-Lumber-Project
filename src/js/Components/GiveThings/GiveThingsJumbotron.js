@@ -1,5 +1,6 @@
 import React from "react";
 import Decoration from '../../../assets/Decoration.svg'
+import FormHeroImage from '../../../assets/Form-Hero-Image.jpg'
 
 const GiveThingsJumbotronSteps = (props) => {
 	return (
@@ -18,9 +19,14 @@ const GiveThingsJumbotronStepsElement = (props) => {
 	)
 }
 
+
 export const GiveThingsJumbotron = () => {
+
+	const style = {
+		backgroundImage: `url(${FormHeroImage})`
+	}
 	return (
-		<section className='things-jumbotron'>
+		<section className='things-jumbotron' style={style}>
 			<div className='container'>
 				<div className='row'>
 					<div className='col-11 col-md-8 col-xl-6 box'>

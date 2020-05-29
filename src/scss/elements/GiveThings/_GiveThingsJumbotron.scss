@@ -1,9 +1,10 @@
 .things-jumbotron {
   width: 100%;
   padding-bottom: 50px;
+  background-size: 0;
+  background-repeat: no-repeat;
   @include desktop {
     padding-bottom: 0;
-    background-image: url("/../../../assets/Form-Hero-Image.jpg");
     background-repeat: no-repeat;
     background-position: left bottom;
     background-size: contain;

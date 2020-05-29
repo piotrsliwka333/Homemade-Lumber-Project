@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {MainTemplate} from "../MainTemplate/MainTemplate";
-import {HashRouter, Link} from "react-router-dom";
+import {BrowserRouter, HashRouter, Link} from "react-router-dom";
 import fire from "../../firebase/firebase";
 import Decoration from '../../../assets/Decoration.svg'
 
@@ -86,7 +86,7 @@ export const Registration = () => {
 			<section className='registration'>
 				<h1 className='registration__title'>Register Account</h1>
 				<img className='registration__decoration' alt='Decoration' src={Decoration}/>
-				<HashRouter>
+				<BrowserRouter>
 					<div className='registration-box'>
 						<form onSubmit={handleSubmit} className='registration-box__form'>
 							<label className='registration-box__form__label'>Email</label>
@@ -108,7 +108,7 @@ export const Registration = () => {
 							</div>
 						</form>
 					</div>
-				</HashRouter>
+				</BrowserRouter>
 			</section>
 		</MainTemplate>
 	)

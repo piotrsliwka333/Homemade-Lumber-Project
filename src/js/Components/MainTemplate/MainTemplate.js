@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {HashRouter, Link} from "react-router-dom";
+import {BrowserRouter, HashRouter, Link} from "react-router-dom";
 import {Link as LinkScroll} from "react-scroll"
 import fire from "../../firebase/firebase";
 import facebook from '../../../assets/Facebook.svg'
@@ -64,7 +64,7 @@ export const MainTemplate = (props) => {
 		<>
 			<header className="heder">
 				<section className="heder__content container">
-					<HashRouter>
+					<BrowserRouter>
 						<div className="user-box">
 							{logged ? <Logged userName={userName}/> : <LoggedOut/> }
 						</div>
@@ -94,7 +94,7 @@ export const MainTemplate = (props) => {
 								</li>
 							</ul>
 						</nav>
-					</HashRouter>
+					</BrowserRouter>
 				</section>
 			</header>
 			<main>
