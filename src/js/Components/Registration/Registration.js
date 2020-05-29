@@ -86,7 +86,7 @@ export const Registration = () => {
 			<section className='registration'>
 				<h1 className='registration__title'>Register Account</h1>
 				<img className='registration__decoration' alt='Decoration' src={Decoration}/>
-				<BrowserRouter>
+				<HashRouter>
 					<div className='registration-box'>
 						<form onSubmit={handleSubmit} className='registration-box__form'>
 							<label className='registration-box__form__label'>Email</label>
@@ -108,7 +108,7 @@ export const Registration = () => {
 							</div>
 						</form>
 					</div>
-				</BrowserRouter>
+				</HashRouter>
 			</section>
 		</MainTemplate>
 	)

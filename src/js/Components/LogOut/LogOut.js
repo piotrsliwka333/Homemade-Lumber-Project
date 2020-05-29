@@ -9,11 +9,11 @@ export const LogOut = () => {
 	return (
 		<MainTemplate>
 			<section className='log-out'>
-				<BrowserRouter>
+				<HashRouter>
 					<h1 className='log-out__title'>Wylogowanie nastąpiło<br/> pomyślnie</h1>
 					<img className='log-out__decoration' alt='Decoration' src={Decoration}/>
 					<Link to={'/'} className='log-out__btn'>Strona główna</Link>
-				</BrowserRouter>
+				</HashRouter>
 			</section>
 		</MainTemplate>
 	)

@@ -64,7 +64,7 @@ export const MainTemplate = (props) => {
 		<>
 			<header className="heder">
 				<section className="heder__content container">
-					<BrowserRouter>
+					<HashRouter>
 						<div className="user-box">
 							{logged ? <Logged userName={userName}/> : <LoggedOut/> }
 						</div>
@@ -94,7 +94,7 @@ export const MainTemplate = (props) => {
 								</li>
 							</ul>
 						</nav>
-					</BrowserRouter>
+					</HashRouter>
 				</section>
 			</header>
 			<main>

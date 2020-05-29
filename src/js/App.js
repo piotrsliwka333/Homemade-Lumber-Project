@@ -14,7 +14,7 @@ import {GiveThings} from "./Components/GiveThings/GiveThings";
 const App = () => {
 
 	return (
-		<BrowserRouter>
+		<HashRouter>
 			<>
 				<Route exact path={'/'} component={Home}/>
 				<Route path={'/login'} component={Login}/>
@@ -22,7 +22,7 @@ const App = () => {
 				<Route path={'/logout'} component={LogOut}/>
 				<Route path={'/give-things'} component={GiveThings}/>
 			</>
-		</BrowserRouter>
+		</HashRouter>
 	)
 }
 
