@@ -1,7 +1,7 @@
 import "../scss/main.scss"
 import React from "react";
 import ReactDOM from "react-dom";
-import {BrowserRouter, Route} from "react-router-dom";
+import {BrowserRouter, HashRouter, Route} from "react-router-dom";
 import {Home} from "./Components/Home/Home";
 import {Login} from "./Components/Login/Login";
 import {Registration} from "./Components/Registration/Registration";
@@ -12,7 +12,7 @@ import {GiveThings} from "./Components/GiveThings/GiveThings";
 const App = () => {
 
 	return (
-		<BrowserRouter>
+		<HashRouter>
 			<>
 				<Route exact path={'/'} component={Home}/>
 				<Route path={'/login'} component={Login}/>
@@ -20,7 +20,7 @@ const App = () => {
 				<Route path={'/logout'} component={LogOut}/>
 				<Route path={'/give-things'} component={GiveThings}/>
 			</>
-		</BrowserRouter>
+		</HashRouter>
 	)
 }
 
