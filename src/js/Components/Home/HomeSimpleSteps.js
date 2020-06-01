@@ -1,5 +1,5 @@
 import React from "react";
-import {BrowserRouter, HashRouter, Link} from "react-router-dom";
+import {Link} from "react-router-dom";
 import Decoration from '../../../assets/Decoration.svg'
 import Icon1 from '../../../assets/Icon-1.svg'
 import Icon2 from '../../../assets/Icon-2.svg'
@@ -39,9 +39,7 @@ export const HomeSimpleSteps = () => {
 					</div>
 				</div>
 			</article>
-			<HashRouter>
-				<Link className='btn' to={'/login'}>Give <br/>Things</Link>
-			</HashRouter>
+			<Link className='btn' to={'/login'}>Give <br/>Things</Link>
 		</section>
 
 	)

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {BrowserRouter, HashRouter, Link} from "react-router-dom";
+import {Link} from "react-router-dom";
 import {Link as LinkScroll} from "react-scroll"
 import fire from "../../firebase/firebase";
 import facebook from '../../../assets/Facebook.svg'
@@ -64,7 +64,6 @@ export const MainTemplate = (props) => {
 		<>
 			<header className="heder">
 				<section className="heder__content container">
-					<HashRouter>
 						<div className="user-box">
 							{logged ? <Logged userName={userName}/> : <LoggedOut/> }
 						</div>
@@ -94,7 +93,6 @@ export const MainTemplate = (props) => {
 								</li>
 							</ul>
 						</nav>
-					</HashRouter>
 				</section>
 			</header>
 			<main>
@@ -105,10 +103,10 @@ export const MainTemplate = (props) => {
 					<small className='footer-box__copyrights'>Copyright by Coders Lab</small>
 					<div className='footer-box__icons'>
 						<a href='#' className='footer-icon'>
-							<img alt='social-media-facebook' alt='social media facebook' src={facebook}/>
+							<img  alt='social media facebook' src={facebook}/>
 						</a>
 						<a href='#' className='footer-icon'>
-							<img alt='social-media-instagram' alt='social media instagram' src={instagram}/>
+							<img  alt='social media instagram' src={instagram}/>
 						</a>
 					</div>
 				</div>

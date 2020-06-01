@@ -61,7 +61,6 @@ export const Login = () => {
 			<section className='login'>
 				<h1 className='login__title'>Zaloguj się</h1>
 				<img className='login__decoration' alt='Decoration' src={Decoration}/>
-				<HashRouter>
 					<div className='login-box'>
 						<form onSubmit={handleSubmit} className='login-box__form'>
 							<label className='login-box__form__label'>Email</label>
@@ -78,7 +77,6 @@ export const Login = () => {
 							</div>
 						</form>
 					</div>
-				</HashRouter>
 			</section>
 		</MainTemplate>
 	)
