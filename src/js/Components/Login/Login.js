@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {MainTemplate} from "../MainTemplate/MainTemplate";
-import {BrowserRouter, HashRouter, Link} from "react-router-dom";
+import {Link} from "react-router-dom";
 import fire from "../../firebase/firebase";
 import Decoration from '../../../assets/Decoration.svg'
 
