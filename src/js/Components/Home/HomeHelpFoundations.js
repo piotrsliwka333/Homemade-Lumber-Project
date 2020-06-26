@@ -14,19 +14,19 @@ export const HomeHelpFoundations = () => {
 
 	return (
 		<HomeHelpInformations
-			information={'W naszej bazie znajdziesz listę zweryfikowanych Fundacji, z którymi współpracujemy. Możesz sprawdzić czym się zajmują, komu pomagają i czego potrzebują.'}>
+			information={'In our database you will find a list of verified foundations with which we cooperate. You can check what they do, who they help and what they need'}>
 			{page === 1 && <>
-				<HomeHelpInformation name={'Fundacja “Dbam o Zdrowie”'}
-				                     description={'Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.'}
-				                     target={'ubrania, jedzenie, sprzęt AGD, meble, zabawki'}
+				<HomeHelpInformation name={'Foundation “Dbam o Zdrowie”'}
+				                     description={'Objective and mission: Helping people in a difficult life situation.'}
+				                     target={'clothes, food, household appliances, furniture, toys'}
 				/>
-				<HomeHelpInformation name={'Fundacja “Dla dzieci”'}
-				                     description={'Cel i misja: Pomoc dzieciom z ubogich rodzin.'}
-				                     target={'ubrania, meble, zabawki'}
+				<HomeHelpInformation name={'Foundation “Dla dzieci”'}
+				                     description={'Objective and mission: Helping children from poor families.'}
+				                     target={'clothes, furniture, toys'}
 				/>
-				<HomeHelpInformation name={'Fundacja “Bez domu”'}
-				                     description={'Cel i misja: Pomoc dla osób nie posiadających miejsca zamieszkania.'}
-				                     target={'ubrania, jedzenie, ciepłe koce'}
+				<HomeHelpInformation name={'Foundation “Bez domu”'}
+				                     description={'Objective and mission: Help for people without a place of residence.'}
+				                     target={'clothes, food, warm blankets'}
 				/>
 			</>}
 			{page === 2 && <>

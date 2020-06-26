@@ -15,29 +15,29 @@ export const HomeHelpOrganizations = () => {
 		<HomeHelpInformations
 			information={'Lorem issamo lemiro aspeto  kimino remi mi laso dala qui ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.'}>
 			{page === 1 && <>
-				<HomeHelpInformation name={'Organizacja “Lorem Ipsum 1”'}
+				<HomeHelpInformation name={'Organization “Lorem Ipsum 1”'}
 				                     description={'Quis varius quam quisque id diam vel quam elementum pulvinar.'}
 				                     target={'Quis varius quam quisque id diam vel quam elementum pulvinar.'}
 				/>
-				<HomeHelpInformation name={'Organizacja “Lorem Ipsum 2”'}
+				<HomeHelpInformation name={'Organization “Lorem Ipsum 2”'}
 				                     description={'Hendrerit gravida rutrum quisque non tellus orci ac auctor augue.'}
 				                     target={'Ut, aliquam, purus, sit, amet'}
 				/>
-				<HomeHelpInformation name={'Organizacja “Lorem Ipsum 3”'}
+				<HomeHelpInformation name={'Organization “Lorem Ipsum 3”'}
 				                     description={'Scelerisque in dictum non consectetur a erat nam.'}
 				                     target={'Mi, quis, hendrerit, dolor'}
 				/>
 			</>}
 			{page === 2 && <>
-				<HomeHelpInformation name={'Organizacja “Lorem Ipsum 4”'}
+				<HomeHelpInformation name={'Organization “Lorem Ipsum 4”'}
 				                     description={'Quis varius quam quisque id diam vel quam elementum pulvinar.'}
 				                     target={'Quis varius quam quisque id diam vel quam elementum pulvinar.'}
 				/>
-				<HomeHelpInformation name={'Organizacja “Lorem Ipsum 5”'}
+				<HomeHelpInformation name={'Organization “Lorem Ipsum 5”'}
 				                     description={'Hendrerit gravida rutrum quisque non tellus orci ac auctor augue.'}
 				                     target={'Ut, aliquam, purus, sit, amet'}
 				/>
-				<HomeHelpInformation name={'Organizacja “Lorem Ipsum 6”'}
+				<HomeHelpInformation name={'Organization “Lorem Ipsum 6”'}
 				                     description={'Scelerisque in dictum non consectetur a erat nam.'}
 				                     target={'Mi, quis, hendrerit, dolor'}
 				/>
@@ -48,5 +48,4 @@ export const HomeHelpOrganizations = () => {
 			</ul>
 		</HomeHelpInformations>
 	)
-
 }

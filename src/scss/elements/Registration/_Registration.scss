@@ -5,13 +5,17 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
 
   &__title {
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: $main-text-color;
     letter-spacing: -0.8px;
     font-weight: 400;
     text-align: center;
+    @include tablet {
+      font-size: 2.5rem;
+    }
   }
 
   &__decoration {
@@ -64,27 +68,71 @@
         display: block;
         border-bottom: 1px solid $second-text-color;
       }
+      $white: #fff;
+      $google-blue: #4285f4;
+      $button-active-blue: #1669F2;
+      .google-btn {
+        position: absolute;
+        left: 50%;
+        bottom: -60px;
+        transform: translateX(-50%);
+        margin: 0 auto;
+        display: block;
+        cursor: pointer;
+        width: 184px;
+        height: 42px;
+        background-color: $google-blue;
+        border-radius: 2px;
+        box-shadow: 0 3px 4px 0 rgba(0,0,0,.25);
+        .google-icon-wrapper {
+          position: absolute;
+          margin-top: 1px;
+          margin-left: 1px;
+          width: 40px;
+          height: 40px;
+          border-radius: 2px;
+          background-color: $white;
+        }
+        .google-icon {
+          position: absolute;
+          margin-top: 11px;
+          margin-left: 11px;
+          width: 18px;
+          height: 18px;
+        }
+        .btn-text {
+          float: right;
+          margin: 11px 11px 0 0;
+          color: $white;
+          font-size: 14px;
+          letter-spacing: 0.2px;
+          font-family: "Roboto",sans-serif;
+        }
+        &:hover {
+          box-shadow: 0 0 6px $google-blue;
+        }
+        &:active {
+          background: $button-active-blue;
+        }
+      }
+
+      @import url(https://fonts.googleapis.com/css?family=Roboto:500);
     }
   }
 
+
   &-btn-box {
-    left: -120px;
-    top: 270px;
+    top: 300px;
     position: absolute;
     margin-top: 30px;
     display: flex;
-    width: 500px;
-    flex-direction: column;
     align-items: center;
+    justify-content: space-between;
     @include tablet {
+      left: -120px;
+      width: 500px;
       top: 300px;
-    }
-
-
-    @include tablet {
-      flex-direction: row;
       justify-content: space-between;
-      align-items: center;
     }
 
     .btn {
@@ -95,14 +143,12 @@
       font-weight: 300;
       font-size: 1rem;
       padding: 13px 16px;
-
       @include tablet {
         margin: 0;
       }
     }
     .active-btn {
       border: 1px solid $main-text-color;
-
     }
   }
 }

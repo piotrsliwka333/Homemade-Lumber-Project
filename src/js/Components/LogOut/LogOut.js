@@ -6,7 +6,6 @@ import Decoration from '../../../assets/Decoration.svg'
 
 export const LogOut = () => {
 
-
 	return (
 		<MainTemplate>
 			<section className='log-out'>

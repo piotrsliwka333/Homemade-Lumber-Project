@@ -2,6 +2,9 @@ import React, {useState} from "react";
 import {MainTemplate} from "../MainTemplate/MainTemplate";
 import {Link} from "react-router-dom";
 import fire from "../../firebase/firebase";
+import firebase from "firebase/app";
+import 'firebase/firestore'
+import 'firebase/auth'
 import Decoration from '../../../assets/Decoration.svg'
 
 export const Registration = () => {
@@ -13,11 +16,13 @@ export const Registration = () => {
 	const [passwordError,setPasswordError] = useState('')
 	const [passwordRepeatError,setPasswordRepeatError]= useState('')
 	const [passwordRepeatError2,setPasswordRepeatError2]= useState('')
-
+	const [googleSignInError,setGoogleSignInError] = useState(false)
 	function validateEmail(email) {
 		let emailValidation = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 		return emailValidation.test(email);
 	}
+	let db = firebase.firestore()
+	let authentication = firebase.auth()
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -80,6 +85,15 @@ export const Registration = () => {
 		promise.catch(e => console.log(e))
 	}
 
+	const signInWithGoogle = (e) => {
+		e.preventDefault();
+		let base_provider = new firebase.auth.GoogleAuthProvider()
+		firebase.auth().signInWithPopup(base_provider)
+			.then(cred => db.collection('users').doc(cred.user.uid))
+			.catch(err => {
+				setGoogleSignInError(true)
+			})
+	}
 
 	return (
 		<MainTemplate logIn={logged}>
@@ -104,6 +118,13 @@ export const Registration = () => {
 							<div className='registration-btn-box'>
 								<Link className='btn' to='/login'>Zaloguj się</Link>
 								<button type='submit' className='btn active-btn'>Załóż konto</button>
+							</div>
+							<div className='google-btn' onClick={e => signInWithGoogle(e)}>
+								<div className="google-icon-wrapper">
+									<img alt='google sign-in icon' className="google-icon"
+									     src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+								</div>
+								<p className="btn-text"><b>Sign in with google</b></p>
 							</div>
 						</form>
 					</div>

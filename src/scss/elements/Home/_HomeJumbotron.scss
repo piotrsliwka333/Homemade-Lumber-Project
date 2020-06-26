@@ -1,12 +1,13 @@
-
 .jumbotron {
-  // background was imported in js coz I use file-Loader and the out doesn't contain this image
+  padding-top: 60px;
   background-repeat: no-repeat;
   background-position: left -400px center;
   background-size: contain;
   width: 100%;
   height: 100vh;
-
+  @include tablet {
+    padding-top: 0;
+  }
 
   .container {
     max-width: 100%;
@@ -62,7 +63,6 @@
         @include desktop {
           margin-top: 80px;
         }
-
 
         .btn {
           width: 310px;

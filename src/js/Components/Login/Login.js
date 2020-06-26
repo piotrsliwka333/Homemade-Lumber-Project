@@ -3,6 +3,7 @@ import {MainTemplate} from "../MainTemplate/MainTemplate";
 import {Link} from "react-router-dom";
 import fire from "../../firebase/firebase";
 import Decoration from '../../../assets/Decoration.svg'
+import firebase from "firebase";
 
 export const Login = () => {
 	const [logged,setLogged] = useState(false)
@@ -10,6 +11,7 @@ export const Login = () => {
 	const [password,setPassword] = useState('')
 	const [emailError,setEmailError] = useState('')
 	const [passwordError,setPasswordError] = useState('')
+	const [googleSignInError,setGoogleSignInError] = useState(false)
 
 	function validateEmail(email) {
 		let emailValidation = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -55,6 +57,15 @@ export const Login = () => {
 		promise.catch(e => console.log(e))
 	}
 
+	const signInWithGoogle = (e) => {
+		e.preventDefault();
+		let base_provider = new firebase.auth.GoogleAuthProvider()
+		firebase.auth().signInWithPopup(base_provider)
+			.then(cred => db.collection('users').doc(cred.user.uid))
+			.catch(err => {
+				setGoogleSignInError(true)
+			})
+	}
 
 	return(
 		<MainTemplate logIn={logged}>
@@ -72,8 +83,15 @@ export const Login = () => {
 							       className={passwordError ? 'login-box__form__input error-border' : 'login-box__form__input'}/>
 							{passwordError && <p className='error-message'>Podane hasło jest za krótkie</p>}
 							<div className='login-btn-box'>
-								<Link className='btn' to='/register'>Załóż konto</Link>
+								<Link className='btn' to='/registration'>Załóż konto</Link>
 								<button type='submit' className='btn active-btn'>Zaloguj się</button>
+							</div>
+							<div className='google-btn' onClick={e => signInWithGoogle(e)}>
+								<div className="google-icon-wrapper">
+									<img alt='google sign-in icon' className="google-icon"
+									     src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+								</div>
+								<p className="btn-text"><b>Sign in with google</b></p>
 							</div>
 						</form>
 					</div>

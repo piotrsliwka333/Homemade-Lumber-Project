@@ -49,7 +49,6 @@ export const HomeContact = () => {
 					email: email,
 					message: message
 				}
-				console.log(dateToSend);
 
 				fetch('https://fer-api.coderslab.pl/v1/portfolio/contact', {
 					method: 'POST',
@@ -82,27 +81,27 @@ export const HomeContact = () => {
 					<div className='contact-box'>
 						<h6 className='contact-box__title'>Skontaktuj się z nami</h6>
 						<img className='contact-box__decoration' alt='Decoration' src={Decoration}/>
-						{formSent && <p className='form-sent'>Wiadomość została wysłana! <br/> Wkrótce się  skontaktujemy</p>}
+						{formSent && <p className='form-sent'>Message was sent <br/> We'll contact with you soon</p>}
 						<form onSubmit={handleSubmit} className='contact-box__form'>
 							<div className='input__group'>
-								<label>Wpisz swoje imię</label>
+								<label>Enter Your Name</label>
 								<input disabled={formSent} className={nameError ? 'error-border' : undefined} onChange={e => setName(e.target.value)} name='name' type='text' value={name}
-								placeholder={'Piotr'}/>
-								{nameError && <p className='error-message'>Podane imie jest nieprawidłowe</p>}
+								placeholder={'Peter'}/>
+								{nameError && <p className='error-message'>Give name is incorrect</p>}
 							</div>
 							<div className='input__group'>
-								<label>Wpisz swój email</label>
+								<label>Enter Your Email</label>
 								<input disabled={formSent} className={emailError ? 'error-border' : undefined} onChange={e => setEmail(e.target.value)} name='email' type='email' value={email}
 								placeholder={'abc@xyz.pl'}/>
-								{emailError && <p className='error-message'>Podane email jest nieprawidłowy</p>}
+								{emailError && <p className='error-message'>Given email is incorrect</p>}
 							</div>
 							<div className='input__group'>
-								<label>Wpisz swoją wiadomość</label>
+								<label>Enter Your message</label>
 								<textarea disabled={formSent} className={messageError ? 'error-border' : undefined} onChange={e => setMessage(e.target.value)} name='message' value={message}
 								placeholder={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'}/>
-								{messageError && <p className='error-message'>Wiadomość musi mieć co najmniej 120 znaków</p>}
+								{messageError && <p className='error-message'>The message must be at least 120 characters</p>}
 							</div>
-							<button className='contact-box__form__btn' type='submit'>Wyślij</button>
+							<button className='contact-box__form__btn' type='submit'>Sent</button>
 						</form>
 					</div>
 				</div>

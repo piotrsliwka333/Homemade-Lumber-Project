@@ -1,14 +1,18 @@
 .heder {
-  margin-top: 20px;
+  padding-top: 10px;
   position: absolute;
   width: 100%;
+  z-index: 25;
+  @include tablet {
+    padding-top: 0;
+    margin-top: 20px;
+  }
 
   .container {
     max-width: 1400px;
   }
 
   &__content {
-
 
     .user-box {
       display: flex;
@@ -23,6 +27,10 @@
       &__stuff, &__log-out, &__log-in, &__create-account {
         text-decoration: none;
         color: black;
+        background: transparent;
+      }
+      .user-box__log-out {
+        border: none;
       }
 
       &__log-out, &__log-in, &__create-account {
@@ -49,9 +57,6 @@
           margin-right: 20px;
         }
       }
-
-
-
     }
 
     .menu-toggle {
@@ -61,59 +66,99 @@
       @include desktop {
         display: none;
       }
-
     }
 
     .page-nav {
       background-color: #fff;
       border: 0.75px solid black;
       border-bottom: none;
+      top: 0;
       width: 100vw;
-      position: absolute;
-      right: 0;
-      top: 190px;
+      position: fixed;
+      height: 100vh;
+      left: 0;
       z-index: 2;
       @include desktop {
+        border: none;
+        height: auto;
         background: transparent;
         width: 100%;
         justify-content: flex-end;
         display: flex;
-        border: none;
         position: static;
         margin-top: 15px;
       }
 
-
       &__list {
+        height: 100%;
         @include desktop {
+          height: auto;
           width: 683px;
           display: flex;
           justify-content: flex-end;
         }
-
+        $item-amount: 6;
+        $item-height: 100%/$item-amount;
         &__element {
-
+          height: $item-height;
+          @include desktop {
+            height: 100%;
+          }
           &__link {
+            height: 100%;
             cursor: pointer;
-            display: block;
-            padding: 35px;
-            text-align: center;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             text-decoration: none;
             color: #3C3C3C;
             font-size: 1.8rem;
             border-bottom: 0.75px solid black;
+            transition: 1s;
             @include desktop {
               font-size: 1rem;
               border: none;
               padding: 9px 20px;
               margin: 0 5px;
             }
+
+            &:hover {
+              transition: text-indent 0.3s;
+              background-color: #FAD648;
+              font-size: 1.9rem;
+              @include desktop {
+                font-size: 1rem;
+              }
+            }
           }
 
+          .close-menu-btn {
+            font-size: 3rem;
+            display: block;
+            background: transparent;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-bottom: 0.75px solid black;
+            transition: 1s;
+            &:hover {
+              transition: 1s;
+              font-size: 3.2rem;
+              background-color: #FAD648;
+            }
+
+            @include desktop {
+             display: none;
+            }
+          }
 
           .active-link {
-            border: 0.75px solid black;
-            font-weight: bold;
+            @include desktop {
+              border: 0.75px solid black;
+              font-weight: bold;
+            }
           }
         }
       }
@@ -122,6 +167,7 @@
 }
 
 .footer {
+
   &-box {
     padding: 0 20px;
     display: flex;
@@ -137,16 +183,12 @@
       font-size: 1.2rem;
       letter-spacing: 0;
       color: #3C3C3C;
-
     }
 
     &__icons {
-
       .footer-icon {
         margin: 0 5px;
       }
-
-
     }
   }
 }
