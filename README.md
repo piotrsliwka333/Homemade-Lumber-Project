@@ -18,7 +18,7 @@ where everybody will able to give back unused items
  
  So Homemade Lumber site goes against expectations and resolves this problem
  
- ### Check Homemade Lumber app LIVE!: https://piotrsliwka333.github.io/Homemade-Lumber-Project/#/
+ ### Check Homemade Lumber app LIVE!: https://homemade-lumber.web.app/#/
  
  ![lumber](src/assets/lumber.png)
  ![lumberLogin](src/assets/lumberloginvalidation.png)
