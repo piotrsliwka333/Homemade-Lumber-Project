@@ -1,0 +1,20 @@
+.not-found {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background: url("/assets/Background-Form.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &__title {
+    font-size: 36px;
+    font-weight: 700;
+
+    @include tablet {
+      font-size: 60px;
+    }
+  }
+}
