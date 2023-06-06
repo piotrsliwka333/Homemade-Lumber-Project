@@ -28,3 +28,6 @@ node_modules/
 .solution
 build/
 
+#firebase
+.firebase
+

@@ -1,6 +1,7 @@
 const path = require("path");
 const autoprefixer = require("autoprefixer");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 const MiniCSS = require("mini-css-extract-plugin");
 
 module.exports = {
@@ -53,12 +54,12 @@ module.exports = {
         ],
       },
       {
-        test: /\.(jpe?g|gif|png|svg)$/,
+        test: /\.(png|jpe?g|gif)$/i,
         loader: "file-loader",
         options: {
           name: "[name].[ext]",
-          publicPath: `public/assets/`,
-          outputPath: `assets/`,
+          publicPath: `/public/assets/`,
+          outputPath: `/build/assets/`,
         },
       },
     ],
@@ -68,6 +69,7 @@ module.exports = {
       filename: `index.html`,
       template: `public/index.html`,
     }),
+    new CopyWebpackPlugin([{ from: "public/assets", to: "assets" }]),
     new MiniCSS({
       filename: "QuickStats.css",
     }),
